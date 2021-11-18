@@ -10,6 +10,7 @@ import 'package:music_player/res/locales.dart';
 import 'package:music_player/services/route_service/route_builder.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/pages/main_page/main_page.dart';
+import 'package:music_player/ui/pages/search_page/search_page.dart';
 import 'package:redux/redux.dart';
 
 class Application extends StatefulWidget {
@@ -23,9 +24,9 @@ class Application extends StatefulWidget {
 
 class _ApplicationState extends State<Application> {
   @override
-  void initState() {
+  void initState()  {
     FlutterDictionary.instance.setNewLanguageAndSave(Locales.en);
-    super.initState();
+      super.initState();
   }
 
 
@@ -43,7 +44,7 @@ class _ApplicationState extends State<Application> {
             debugShowCheckedModeBanner: false,
             navigatorKey: NavigatorHolder.navigatorKey,
             onGenerateRoute: RouteBuilder.onGenerateRoute,
-            home: MainPage(),
+            home: SearchPage(),
             locale: Locale(Locales.base),
             supportedLocales: FlutterDictionaryDelegate.getSupportedLocales,
             localizationsDelegates: FlutterDictionaryDelegate.getLocalizationDelegates,

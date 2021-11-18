@@ -12,43 +12,43 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:8:5-66
-14-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:8:22-64
+14-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:8:5-66
+14-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:8:22-64
 15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-15-->[:connectivity] C:\Users\Admin\IdeaProjects\music_player\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
-15-->[:connectivity] C:\Users\Admin\IdeaProjects\music_player\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
+15-->[:connectivity] C:\Users\AppVesto\IdeaProjects\music_player\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
+15-->[:connectivity] C:\Users\AppVesto\IdeaProjects\music_player\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
 16    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-16-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:23:5-68
-16-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:23:22-65
+16-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:23:5-68
+16-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:23:22-65
 17    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-17-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:25:5-82
-17-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:25:22-79
+17-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:25:5-82
+17-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:25:22-79
 18
 19    <application
-19-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:9:5-51:19
+19-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:9:5-51:19
 20        android:name="io.flutter.app.FlutterApplication"
-20-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:10:9-57
+20-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:10:9-57
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-21-->[androidx.core:core:1.3.1] C:\Users\Admin\.gradle\caches\transforms-3\ee8cad5046877ea0462227635e8c9e6a\transformed\core-1.3.1\AndroidManifest.xml:24:18-86
+21-->[androidx.core:core:1.3.1] C:\Users\AppVesto\.gradle\caches\transforms-3\ee8cad5046877ea0462227635e8c9e6a\transformed\core-1.3.1\AndroidManifest.xml:24:18-86
 22        android:debuggable="true"
 23        android:icon="@mipmap/ic_launcher"
-23-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:12:9-43
+23-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:12:9-43
 24        android:label="Music Player" >
-24-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:11:9-37
+24-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:11:9-37
 25        <activity
-25-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:13:9-45:20
+25-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:13:9-45:20
 26            android:name="com.greenteam.emptyfridge.MainActivity"
-26-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:14:13-41
+26-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:14:13-41
 27            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-27-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:17:13-163
+27-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:17:13-163
 28            android:hardwareAccelerated="true"
-28-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:18:13-47
+28-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:18:13-47
 29            android:launchMode="singleTop"
-29-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:15:13-43
+29-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:15:13-43
 30            android:theme="@style/LaunchTheme"
-30-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:16:13-47
+30-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:16:13-47
 31            android:windowSoftInputMode="adjustResize" >
-31-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:19:13-55
+31-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:19:13-55
 32
 33            <!--
 34                 Specifies an Android theme to apply to this Activity as soon as
@@ -57,11 +57,11 @@
 37                 to determine the Window background behind the Flutter UI.
 38            -->
 39            <meta-data
-39-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:24:13-27:17
+39-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:24:13-27:17
 40                android:name="io.flutter.embedding.android.NormalTheme"
-40-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:25:15-70
+40-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:25:15-70
 41                android:resource="@style/NormalTheme" />
-41-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:26:15-52
+41-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:26:15-52
 42            <!--
 43                 Displays an Android View that continues showing the launch screen
 44                 Drawable until Flutter paints its first frame, then this splash
@@ -70,31 +70,31 @@
 47                 Flutter's first frame.
 48            -->
 49            <meta-data
-49-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:33:13-36:17
+49-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:33:13-36:17
 50                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-50-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:34:15-79
+50-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:34:15-79
 51                android:resource="@drawable/launch_background" />
-51-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:35:15-61
+51-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:35:15-61
 52
 53            <intent-filter>
-53-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:37:13-40:29
+53-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:37:13-40:29
 54                <action android:name="android.intent.action.MAIN" />
-54-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:38:17-68
-54-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:38:25-66
+54-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:38:17-68
+54-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:38:25-66
 55
 56                <category android:name="android.intent.category.LAUNCHER" />
-56-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:39:17-76
-56-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:39:27-74
+56-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:39:17-76
+56-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:39:27-74
 57            </intent-filter>
 58            <intent-filter>
-58-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:41:13-44:29
+58-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:41:13-44:29
 59                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
-59-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:42:17-69
-59-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:42:25-66
+59-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:42:17-69
+59-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:42:25-66
 60
 61                <category android:name="android.intent.category.DEFAULT" />
-61-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:43:17-76
-61-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:43:27-73
+61-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:43:17-76
+61-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:43:27-73
 62            </intent-filter>
 63        </activity>
 64        <!--
@@ -102,52 +102,52 @@
 66             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 67        -->
 68        <meta-data
-68-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:48:9-50:33
+68-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:48:9-50:33
 69            android:name="flutterEmbedding"
-69-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:49:13-44
+69-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:49:13-44
 70            android:value="2" />
-70-->C:\Users\Admin\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:50:13-30
+70-->C:\Users\AppVesto\IdeaProjects\music_player\android\app\src\main\AndroidManifest.xml:50:13-30
 71
 72        <activity
-72-->[:url_launcher] C:\Users\Admin\IdeaProjects\music_player\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
+72-->[:url_launcher] C:\Users\AppVesto\IdeaProjects\music_player\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
 73            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-73-->[:url_launcher] C:\Users\Admin\IdeaProjects\music_player\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
+73-->[:url_launcher] C:\Users\AppVesto\IdeaProjects\music_player\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
 74            android:exported="false"
-74-->[:url_launcher] C:\Users\Admin\IdeaProjects\music_player\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
+74-->[:url_launcher] C:\Users\AppVesto\IdeaProjects\music_player\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
 75            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-75-->[:url_launcher] C:\Users\Admin\IdeaProjects\music_player\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
+75-->[:url_launcher] C:\Users\AppVesto\IdeaProjects\music_player\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
 76
 77        <provider
-77-->[:share] C:\Users\Admin\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
+77-->[:share] C:\Users\AppVesto\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
 78            android:name="io.flutter.plugins.share.ShareFileProvider"
-78-->[:share] C:\Users\Admin\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-70
+78-->[:share] C:\Users\AppVesto\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-70
 79            android:authorities="com.example.Provider_template_v1.flutter.share_provider"
-79-->[:share] C:\Users\Admin\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
+79-->[:share] C:\Users\AppVesto\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
 80            android:exported="false"
-80-->[:share] C:\Users\Admin\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
+80-->[:share] C:\Users\AppVesto\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
 81            android:grantUriPermissions="true" >
-81-->[:share] C:\Users\Admin\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
+81-->[:share] C:\Users\AppVesto\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
 82            <meta-data
-82-->[:share] C:\Users\Admin\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:68
+82-->[:share] C:\Users\AppVesto\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:68
 83                android:name="android.support.FILE_PROVIDER_PATHS"
-83-->[:share] C:\Users\Admin\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+83-->[:share] C:\Users\AppVesto\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
 84                android:resource="@xml/flutter_share_file_paths" />
-84-->[:share] C:\Users\Admin\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-65
+84-->[:share] C:\Users\AppVesto\IdeaProjects\music_player\build\share\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-65
 85        </provider>
 86
 87        <receiver
-87-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:28:9-35:20
+87-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:28:9-35:20
 88            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-88-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:29:13-78
+88-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:29:13-78
 89            android:exported="true"
-89-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:30:13-36
+89-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:30:13-36
 90            android:permission="com.google.android.c2dm.permission.SEND" >
-90-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:31:13-73
+90-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:31:13-73
 91            <intent-filter>
-91-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:32:13-34:29
+91-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:32:13-34:29
 92                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-92-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:17-81
-92-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:25-78
+92-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:17-81
+92-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:25-78
 93            </intent-filter>
 94        </receiver>
 95        <!--
@@ -155,104 +155,104 @@
 97             but set to not exported to explicitly avoid allowing another app to call it.
 98        -->
 99        <service
-99-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:41:9-48:19
+99-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:41:9-48:19
 100            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-100-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:42:13-82
+100-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:42:13-82
 101            android:directBootAware="true"
-101-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:43:13-43
+101-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:43:13-43
 102            android:exported="false" >
-102-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:44:13-37
+102-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:44:13-37
 103            <intent-filter android:priority="-500" >
-103-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:13-47:29
-103-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:28-51
+103-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:13-47:29
+103-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:28-51
 104                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-104-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:17-78
-104-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:25-75
+104-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:17-78
+104-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:25-75
 105            </intent-filter>
 106        </service>
 107        <service
-107-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:49:9-55:19
+107-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:49:9-55:19
 108            android:name="com.google.firebase.components.ComponentDiscoveryService"
-108-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:50:13-84
+108-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:50:13-84
 109            android:directBootAware="true"
-109-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Admin\.gradle\caches\transforms-3\310159c10f1c99f97f2c58d744bcc434\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
+109-->[com.google.firebase:firebase-common:20.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3964017deb42cd1b7a98d39029165201\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
 110            android:exported="false" >
-110-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:51:13-37
+110-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:51:13-37
 111            <meta-data
-111-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:52:13-54:85
+111-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:52:13-54:85
 112                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-112-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:53:17-119
+112-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:53:17-119
 113                android:value="com.google.firebase.components.ComponentRegistrar" />
-113-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\Admin\.gradle\caches\transforms-3\3031afe8b2c9009b80d720ee3289481c\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:54:17-82
+113-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3e150fe48abd35ded159bd296625edca\transformed\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:54:17-82
 114            <meta-data
-114-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\Admin\.gradle\caches\transforms-3\a8ad688260c8ec55ed9ccedd65dc40e1\transformed\firebase-iid-21.1.0\AndroidManifest.xml:32:13-34:85
+114-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\AppVesto\.gradle\caches\transforms-3\a8ad688260c8ec55ed9ccedd65dc40e1\transformed\firebase-iid-21.1.0\AndroidManifest.xml:32:13-34:85
 115                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-115-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\Admin\.gradle\caches\transforms-3\a8ad688260c8ec55ed9ccedd65dc40e1\transformed\firebase-iid-21.1.0\AndroidManifest.xml:33:17-96
+115-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\AppVesto\.gradle\caches\transforms-3\a8ad688260c8ec55ed9ccedd65dc40e1\transformed\firebase-iid-21.1.0\AndroidManifest.xml:33:17-96
 116                android:value="com.google.firebase.components.ComponentRegistrar" />
-116-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\Admin\.gradle\caches\transforms-3\a8ad688260c8ec55ed9ccedd65dc40e1\transformed\firebase-iid-21.1.0\AndroidManifest.xml:34:17-82
+116-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\AppVesto\.gradle\caches\transforms-3\a8ad688260c8ec55ed9ccedd65dc40e1\transformed\firebase-iid-21.1.0\AndroidManifest.xml:34:17-82
 117            <meta-data
-117-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\Admin\.gradle\caches\transforms-3\f37963696fde3f4132b6f1218331984c\transformed\firebase-datatransport-18.0.0\AndroidManifest.xml:28:13-30:85
+117-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\f37963696fde3f4132b6f1218331984c\transformed\firebase-datatransport-18.0.0\AndroidManifest.xml:28:13-30:85
 118                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-118-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\Admin\.gradle\caches\transforms-3\f37963696fde3f4132b6f1218331984c\transformed\firebase-datatransport-18.0.0\AndroidManifest.xml:29:17-115
+118-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\f37963696fde3f4132b6f1218331984c\transformed\firebase-datatransport-18.0.0\AndroidManifest.xml:29:17-115
 119                android:value="com.google.firebase.components.ComponentRegistrar" />
-119-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\Admin\.gradle\caches\transforms-3\f37963696fde3f4132b6f1218331984c\transformed\firebase-datatransport-18.0.0\AndroidManifest.xml:30:17-82
+119-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\f37963696fde3f4132b6f1218331984c\transformed\firebase-datatransport-18.0.0\AndroidManifest.xml:30:17-82
 120            <meta-data
-120-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Admin\.gradle\caches\transforms-3\6b85649366db6709efca8d5abc2de3ad\transformed\firebase-installations-17.0.0\AndroidManifest.xml:18:13-20:85
+120-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\6b85649366db6709efca8d5abc2de3ad\transformed\firebase-installations-17.0.0\AndroidManifest.xml:18:13-20:85
 121                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-121-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Admin\.gradle\caches\transforms-3\6b85649366db6709efca8d5abc2de3ad\transformed\firebase-installations-17.0.0\AndroidManifest.xml:19:17-127
+121-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\6b85649366db6709efca8d5abc2de3ad\transformed\firebase-installations-17.0.0\AndroidManifest.xml:19:17-127
 122                android:value="com.google.firebase.components.ComponentRegistrar" />
-122-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Admin\.gradle\caches\transforms-3\6b85649366db6709efca8d5abc2de3ad\transformed\firebase-installations-17.0.0\AndroidManifest.xml:20:17-82
+122-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\6b85649366db6709efca8d5abc2de3ad\transformed\firebase-installations-17.0.0\AndroidManifest.xml:20:17-82
 123        </service>
 124        <service
-124-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\84f137a96829996d6a88d811678380e9\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:29:9-35:19
+124-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\1e817553150582f809c8ec8125581174\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:29:9-35:19
 125            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-125-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\84f137a96829996d6a88d811678380e9\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:30:13-103
+125-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\1e817553150582f809c8ec8125581174\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:30:13-103
 126            android:exported="false" >
-126-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\84f137a96829996d6a88d811678380e9\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:31:13-37
+126-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\1e817553150582f809c8ec8125581174\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:31:13-37
 127            <meta-data
-127-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\84f137a96829996d6a88d811678380e9\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:32:13-34:39
+127-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\1e817553150582f809c8ec8125581174\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:32:13-34:39
 128                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-128-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\84f137a96829996d6a88d811678380e9\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:33:17-94
+128-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\1e817553150582f809c8ec8125581174\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:33:17-94
 129                android:value="cct" />
-129-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\84f137a96829996d6a88d811678380e9\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:34:17-36
+129-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\1e817553150582f809c8ec8125581174\transformed\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:34:17-36
 130        </service>
 131
 132        <provider
-132-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Admin\.gradle\caches\transforms-3\310159c10f1c99f97f2c58d744bcc434\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
+132-->[com.google.firebase:firebase-common:20.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3964017deb42cd1b7a98d39029165201\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
 133            android:name="com.google.firebase.provider.FirebaseInitProvider"
-133-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Admin\.gradle\caches\transforms-3\310159c10f1c99f97f2c58d744bcc434\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
+133-->[com.google.firebase:firebase-common:20.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3964017deb42cd1b7a98d39029165201\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
 134            android:authorities="com.example.Provider_template_v1.firebaseinitprovider"
-134-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Admin\.gradle\caches\transforms-3\310159c10f1c99f97f2c58d744bcc434\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
+134-->[com.google.firebase:firebase-common:20.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3964017deb42cd1b7a98d39029165201\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
 135            android:directBootAware="true"
-135-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Admin\.gradle\caches\transforms-3\310159c10f1c99f97f2c58d744bcc434\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
+135-->[com.google.firebase:firebase-common:20.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3964017deb42cd1b7a98d39029165201\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
 136            android:exported="false"
-136-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Admin\.gradle\caches\transforms-3\310159c10f1c99f97f2c58d744bcc434\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
+136-->[com.google.firebase:firebase-common:20.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3964017deb42cd1b7a98d39029165201\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
 137            android:initOrder="100" />
-137-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Admin\.gradle\caches\transforms-3\310159c10f1c99f97f2c58d744bcc434\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
+137-->[com.google.firebase:firebase-common:20.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\3964017deb42cd1b7a98d39029165201\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
 138
 139        <meta-data
-139-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-3\035e07fbdd2445eb5fe6f129c65ac2fc\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+139-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\4cd2021f48e0e1a004fe321938b2bf6f\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
 140            android:name="com.google.android.gms.version"
-140-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-3\035e07fbdd2445eb5fe6f129c65ac2fc\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+140-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\4cd2021f48e0e1a004fe321938b2bf6f\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
 141            android:value="@integer/google_play_services_version" />
-141-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Admin\.gradle\caches\transforms-3\035e07fbdd2445eb5fe6f129c65ac2fc\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+141-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\4cd2021f48e0e1a004fe321938b2bf6f\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
 142
 143        <service
-143-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\43949355b2dd42fd22c79796eb9018e4\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:26:9-30:19
+143-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\71ff8152445abbf86739521de586aa8a\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:26:9-30:19
 144            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-144-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\43949355b2dd42fd22c79796eb9018e4\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:27:13-117
+144-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\71ff8152445abbf86739521de586aa8a\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:27:13-117
 145            android:exported="false"
-145-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\43949355b2dd42fd22c79796eb9018e4\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:28:13-37
+145-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\71ff8152445abbf86739521de586aa8a\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:28:13-37
 146            android:permission="android.permission.BIND_JOB_SERVICE" >
-146-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\43949355b2dd42fd22c79796eb9018e4\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:29:13-69
+146-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\71ff8152445abbf86739521de586aa8a\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:29:13-69
 147        </service>
 148
 149        <receiver
-149-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\43949355b2dd42fd22c79796eb9018e4\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:32:9-34:40
+149-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\71ff8152445abbf86739521de586aa8a\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:32:9-34:40
 150            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-150-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\43949355b2dd42fd22c79796eb9018e4\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:33:13-132
+150-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\71ff8152445abbf86739521de586aa8a\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:33:13-132
 151            android:exported="false" />
-151-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Admin\.gradle\caches\transforms-3\43949355b2dd42fd22c79796eb9018e4\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:34:13-37
+151-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\AppVesto\.gradle\caches\transforms-3\71ff8152445abbf86739521de586aa8a\transformed\jetified-transport-runtime-3.0.0\AndroidManifest.xml:34:13-37
 152    </application>
 153
 154</manifest>

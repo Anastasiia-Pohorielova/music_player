@@ -1,0 +1,21 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+ChartDto _$ChartDtoFromJson(Map<String, dynamic> json) {
+  return ChartDto(
+    title: json['title'] as String,
+    picture: json['picture'] as String,
+    album: json['album'] as String,
+    duration: json['duration'] as String,
+    songLink: json['songLink'] as String,
+  );
+}
+
+Map<String, dynamic> _$ChartDtoToJson(ChartDto instance) => <String, dynamic>{
+      'title': instance.title,
+      'picture': instance.picture,
+      'album': instance.album,
+      'songLink': instance.songLink,
+      'duration': instance.duration,
+    };

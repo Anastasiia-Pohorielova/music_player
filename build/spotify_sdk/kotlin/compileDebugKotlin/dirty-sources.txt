@@ -1,0 +1,10 @@
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\SpotifyImagesApi.kt
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\subscriptions\PlayerStateChannel.kt
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\SpotifyUserApi.kt
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\SpotifyPlayerApi.kt
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\SpotifySdkPlugin.kt
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\subscriptions\ConnectionStatusChannel.kt
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\subscriptions\UserStatusChannel.kt
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\subscriptions\PlayerContextChannel.kt
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\BaseSpotifyApi.kt
+C:\Users\AppVesto\Documents\flutter\.pub-cache\hosted\pub.dartlang.org\spotify_sdk-2.1.0\android\src\main\kotlin\de\minimalme\spotify_sdk\subscriptions\CapabilitiesChannel.kt
