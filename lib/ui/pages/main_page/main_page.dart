@@ -62,7 +62,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         converter: MainPageVM.fromStore,
         builder: (BuildContext context, MainPageVM vm) {
           return MainLayout(
-            customAppBar: CustomAppBar(),
+            customAppBar: CustomAppBar(action: SizedBox(),),
             body: NestedScrollView(
               headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                 return <Widget>[
@@ -170,10 +170,6 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                 margin: const EdgeInsets.all(20.0),
                                 child: Row(
                                   children: [
-                                    FadeInImage(
-                                      placeholder: AssetImage('dfdffds'),
-                                      image: NetworkImage(vm.chart[index].picture),
-                                    ),
                                     Padding(
                                       padding: const EdgeInsets.only(left: 15.0),
                                       child: Column(

@@ -42,6 +42,12 @@ const String pattern =
     r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
     r'{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]'
     r'{0,253}[a-zA-Z0-9])?)*$';
+final RegExp regExpUpperLiteral = RegExp(r'^(?=.*?[A-Z])');
+final RegExp regExpDownLiteral = RegExp(r'^(?=.*?[a-z])');
+final RegExp regExpNumeric = RegExp(r'^(?=.*?[0-9])');
+final RegExp regExpAtSign = RegExp(r'^(?=.*?[@])');
+final RegExp regExpEightLong = RegExp(r'^.{8,}$');
+
 //endregion
 
 //region [PLACEHOLDER TEXT]

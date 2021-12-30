@@ -48,4 +48,22 @@ class AppTextStyles {
       height: 1.0,
     );
   }
+
+  static TextStyle get s14fw400Black {
+    return GoogleFonts.roboto(
+      fontSize: 14.0,
+      color: AppColors.black,
+      fontWeight: FontWeight.w400,
+      height: 1.0,
+    );
+  }
+
+  static TextStyle get s14fw400Red {
+    return GoogleFonts.roboto(
+      fontSize: 14.0,
+      color: AppColors.red,
+      fontWeight: FontWeight.w400,
+      height: 1.0,
+    );
+  }
 }

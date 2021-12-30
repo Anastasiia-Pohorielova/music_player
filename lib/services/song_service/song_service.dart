@@ -1,51 +1,54 @@
 import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:music_player/models/dto/chart_dto.dart';
-import 'package:music_player/store/song_store/song_actions/get_chart_action.dart';
-import 'package:music_player/store/song_store/song_actions/get_track_by_key_action.dart';
+import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
+import 'package:music_player/services/network_service/models/get_request_model.dart';
+import 'package:music_player/services/network_service/network_service.dart';
+import 'package:music_player/store/song_store/song_actions/get_album_action.dart';
+import 'package:music_player/store/song_store/song_actions/get_tracklist_action.dart';
 
 class SongService {
   SongService._privateConstructor();
+
   static final SongService instance = SongService._privateConstructor();
 
-  Future<List<ChartDto>?> getChart(GetChartAction action) async {
-    final response = await Dio().get('https://api.deezer.com/chart/0');
-    if (response.statusCode == 200) {
-      final decodedJsonList = jsonDecode(response.toString())['tracks']['data'];
-      final List<ChartDto> chartList = List<ChartDto>.from(decodedJsonList.map((json) => ChartDto.fromJson(json)));
+  Future<List<AlbumDto>?> getAlbum(GetAlbumAction action) async {
+    final response = await NetworkService.instance.request(GetRequestModel(url: 'https://api.deezer.com/search/album?q=${action.key}'));
+    if (response.error == null) {
+      final decodedJsonList = jsonDecode(jsonEncode(response.response))['data'];
+      final List<AlbumDto> albumsList = List<AlbumDto>.from(decodedJsonList.map((json) => AlbumDto.fromJson(json)));
 
-      return chartList.map((ChartDto chartDto) => ChartDto(
-        title: chartDto.title,
-        album: chartDto.album,
-        duration: chartDto.duration,
-        picture: chartDto.picture,
-        songLink: chartDto.songLink,
-        artist: chartDto.artist,
-      )).toList();
+      return albumsList
+          .map((AlbumDto albumDto) => AlbumDto(
+                urlTrackList: albumDto.urlTrackList,
+                artist: albumDto.artist,
+                title: albumDto.title,
+                cover: albumDto.cover,
+              ))
+          .toList();
     } else {
       throw Exception('Failed to fetch data');
     }
   }
 
-  Future<List<ChartDto>?> getTrackByKeyword(GetTrackByKeyAction action) async {
-    final response = await Dio().get('https://api.deezer.com/search?q=${action.key}');
-    if (response.statusCode == 200) {
-      final decodedJsonList = jsonDecode(response.toString())['tracks']['data'];
-      final List<ChartDto> chartList = List<ChartDto>.from(decodedJsonList.map((json) => ChartDto.fromJson(json)));
+  Future<List<TrackDto>?> getTrackList(GetTracklistAction action, String url) async {
+    final response = await NetworkService.instance.request(GetRequestModel(url: url));
+    if (response.error == null) {
+      final decodedJsonList = jsonDecode(jsonEncode(response.response))['data'];
+      final List<TrackDto> trackList = List<TrackDto>.from(decodedJsonList.map((json) => TrackDto.fromJson(json)));
 
-      return chartList.map((ChartDto chartDto) => ChartDto(
-        title: chartDto.title,
-        album: chartDto.album,
-        duration: chartDto.duration,
-        picture: chartDto.picture,
-        songLink: chartDto.songLink,
-        artist: chartDto.artist,
-      )).toList();
+      return trackList
+          .map(
+            (TrackDto trackDto) => TrackDto(
+              title: trackDto.title,
+              duration: trackDto.duration,
+              preview: trackDto.preview,
+              trackId: trackDto.trackId,
+            ),
+          )
+          .toList();
     } else {
       throw Exception('Failed to fetch data');
     }
   }
-
-
 }

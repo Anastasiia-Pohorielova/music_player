@@ -2,24 +2,18 @@ import 'package:json_annotation/json_annotation.dart';
 part 'chart_dto.g.dart';
 
 @JsonSerializable()
-class ChartDto {
+class AlbumDto {
   final String title;
-  final String picture;
-  final String album;
-  final String songLink;
-  final int duration;
+  final String cover;
   final String artist;
+  final String urlTrackList;
 
-  ChartDto({
+  AlbumDto({
     required this.title,
-    required this.picture,
-    required this.album,
-    required this.duration,
-    required this.songLink,
+    required this.cover,
     required this.artist,
+    required this.urlTrackList,
   });
 
-  factory ChartDto.fromJson(Map<String, dynamic> json) => _$ChartDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ChartDtoToJson(this);
+  factory AlbumDto.fromJson(Map<String, dynamic> json) => _$AlbumDtoFromJson(json);
 }

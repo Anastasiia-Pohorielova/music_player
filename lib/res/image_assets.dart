@@ -29,4 +29,5 @@ class ImageAssets {
   static const String difficulty = 'assets/png/difficulty.png';
   static const String homePageCook = 'assets/svg/home_page_cook.svg';
   static const String loading = 'assets/gif/loading.gif';
+  static const String background = 'assets/jpg/background.jpg';
 }

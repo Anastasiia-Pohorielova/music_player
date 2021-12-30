@@ -6,7 +6,7 @@ import 'package:redux/redux.dart';
 class MainPageVM {
   final void Function() getChart;
   final void Function(String) getTracksByKey;
-  final List<ChartDto> chart;
+  final List<AlbumDto> chart;
 
   MainPageVM({
     required this.chart,

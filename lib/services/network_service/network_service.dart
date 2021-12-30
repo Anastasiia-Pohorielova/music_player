@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:music_player/res/const.dart';
 import 'package:music_player/services/network_service/interfaces/i_base_error.dart';
 import 'package:music_player/services/network_service/interfaces/i_base_http_error.dart';
@@ -7,7 +8,6 @@ import 'package:music_player/services/network_service/interfaces/i_base_request.
 import 'package:music_player/services/network_service/models/base_http_response.dart';
 import 'package:music_player/services/network_service/res/consts.dart';
 import 'package:music_player/services/network_service/shared/request_builders.dart';
-import 'package:http/http.dart' as http;
 
 /// [NetworkService] it is Service for get data from server.
 /// In our architecture we does use this service from [Request] classes from [network/requests/] folder.
@@ -53,12 +53,10 @@ class NetworkService {
   /// params:
   ///   - [request]. Will accept object extended from [IBaseRequest]. List of main request types will contains in [RequestBuilders] class.
   Future<BaseHttpResponse> request(IBaseRequest request) async {
-    //  final BaseHttpResponse checkConnection = (await InternetConnectionHelper.hasInternetConnection()) as BaseHttpResponse;
-//    if (checkConnection != null) return checkConnection;
 
-    final http.Response response = await request();
+    final Response response = await request();
 
-    logger.d(response.body);
+  //  logger.d(response.data);
 
     return _getCheckedForErrorResponse(response);
   }
@@ -66,12 +64,12 @@ class NetworkService {
   /// This function will check a response for main errors.
   /// params:
   ///   - [response]. This params we will get from [http.get] or etc functions.
-  BaseHttpResponse _getCheckedForErrorResponse(http.Response response) {
-    if (response.statusCode < httpOk || response.statusCode > httpMaxOk) {
+  BaseHttpResponse _getCheckedForErrorResponse(Response response) {
+    if (response.statusCode! < httpOk || response.statusCode! > httpMaxOk) {
       return BaseHttpResponse(
-        response: response.body,
+        response: response.data,
         error: IBaseHttpError(
-          error: response.reasonPhrase,
+          error: response.statusMessage,
           statusCode: response.statusCode,
         ),
       );
@@ -79,23 +77,23 @@ class NetworkService {
 
     if (response.statusCode == httpUnprocessable) {
       try {
-        final Map<String, dynamic> responseBody = jsonDecode(response.body);
+        final Map<String, dynamic> responseBody = jsonDecode(response.data);
 
         final int code = responseBody[data];
         final String? error = _getErrorByCode(code);
 
         if (error == null) {
           return BaseHttpResponse(
-            response: response.body,
+            response: response.data,
             error: IBaseHttpError(
-              error: response.reasonPhrase,
+              error: response.statusMessage,
               statusCode: response.statusCode,
             ),
           );
         }
 
         return BaseHttpResponse(
-          response: response.body,
+          response: response.data,
           error: IBaseHttpError(
             error: error,
             statusCode: code,
@@ -103,9 +101,9 @@ class NetworkService {
         );
       } catch (e) {
         return BaseHttpResponse(
-          response: response.body,
+          response: response.data,
           error: IBaseHttpError(
-            error: response.reasonPhrase,
+            error: response.statusMessage,
             statusCode: response.statusCode,
           ),
         );
@@ -113,7 +111,7 @@ class NetworkService {
     }
 
     return BaseHttpResponse(
-      response: jsonDecode(response.body),
+      response: response.data,
     );
   }
 
