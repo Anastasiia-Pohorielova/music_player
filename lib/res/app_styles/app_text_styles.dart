@@ -22,6 +22,15 @@ class AppTextStyles {
     );
   }
 
+  static TextStyle get s14fw500White {
+    return GoogleFonts.roboto(
+      fontSize: 14.0,
+      color: AppColors.white,
+      fontWeight: FontWeight.w500,
+      height: 1.0,
+    );
+  }
+
   static TextStyle get s12fw400White {
     return GoogleFonts.roboto(
       fontSize: 12.0,
@@ -35,6 +44,24 @@ class AppTextStyles {
     return GoogleFonts.roboto(
       fontSize: 12.0,
       color: AppColors.greyLight,
+      fontWeight: FontWeight.w400,
+      height: 1.0,
+    );
+  }
+
+  static TextStyle get s14fw400Black {
+    return GoogleFonts.roboto(
+      fontSize: 14.0,
+      color: AppColors.black,
+      fontWeight: FontWeight.w400,
+      height: 1.0,
+    );
+  }
+
+  static TextStyle get s14fw400Red {
+    return GoogleFonts.roboto(
+      fontSize: 14.0,
+      color: AppColors.red,
       fontWeight: FontWeight.w400,
       height: 1.0,
     );

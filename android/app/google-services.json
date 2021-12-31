@@ -1,49 +1,41 @@
 {
   "project_info": {
-    "project_number": "784816773105",
-    "project_id": "emptyfridge-2c354",
-    "storage_bucket": "emptyfridge-2c354.appspot.com"
+    "project_number": "1078780434446",
+    "project_id": "music-player-a6cb9",
+    "storage_bucket": "music-player-a6cb9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:784816773105:android:a1d7b6dde7e26459709650",
+        "mobilesdk_app_id": "1:1078780434446:android:263ba29d0ae07f5b20045f",
         "android_client_info": {
-          "package_name": "com.greenteam.emptyfridge"
+          "package_name": "com.music.player"
         }
       },
       "oauth_client": [
         {
-          "client_id": "784816773105-5ceqvk8saiip6ubf3861js4cqm8a158n.apps.googleusercontent.com",
+          "client_id": "1078780434446-17425rg95ok4hamupaq1nm54s88066v8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.greenteam.emptyfridge",
-            "certificate_hash": "6a5d519430badf00b3b6ff7943942cee522b7f56"
+            "package_name": "com.music.player",
+            "certificate_hash": "38a1efd5a961425425300d6c7268497fa12e927e"
           }
         },
         {
-          "client_id": "784816773105-qrm3tvko4m1lsi9g6meap5t5tsrvsoks.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.greenteam.emptyfridge",
-            "certificate_hash": "0b90809cbaa719f18bf442d8c6b141b0d91482d6"
-          }
-        },
-        {
-          "client_id": "784816773105-uo6rj8th9mlpgjegmm9g09j28serhj7j.apps.googleusercontent.com",
+          "client_id": "1078780434446-5d7ie38v6mbitmhl99vqfcete7bnflkj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBLF0CW_0A71-mEsisfGAT0Z6OKNhjNvP0"
+          "current_key": "AIzaSyBSa6mLAk8L98up522353JfYS-7osjmxXQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "784816773105-uo6rj8th9mlpgjegmm9g09j28serhj7j.apps.googleusercontent.com",
+              "client_id": "1078780434446-5d7ie38v6mbitmhl99vqfcete7bnflkj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

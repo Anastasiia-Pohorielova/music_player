@@ -1,5 +1,4 @@
-import 'package:http/http.dart' as http;
-import 'package:http/src/response.dart';
+import 'package:dio/dio.dart';
 import 'package:music_player/services/network_service/interfaces/i_base_request.dart';
 
 class DeleteRequestModel implements IBaseRequest {
@@ -13,9 +12,11 @@ class DeleteRequestModel implements IBaseRequest {
 
   @override
   Future<Response> call() {
-    return http.delete(
-      Uri.parse(url!),
-      headers: headers,
+    return Dio().delete(
+      url!,
+      options: Options(
+        headers: headers,
+      ),
     );
   }
 }

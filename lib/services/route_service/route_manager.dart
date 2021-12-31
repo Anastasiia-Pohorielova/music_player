@@ -19,7 +19,7 @@ class RouteManager {
 
   List<String>? get historyList => _history.isNotEmpty ? _history : null;
 
-  bool get canPop => NavigatorHolder.navigatorKey.currentState!.canPop() && _history.length > 1;
+  bool get canPop => NavigatorHolder.navigatorKey.currentState!.canPop() && _history.length >= 1;
 
   NavigateToAction? pop() {
     if (_history.isEmpty) return null;

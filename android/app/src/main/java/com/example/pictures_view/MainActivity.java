@@ -1,4 +1,4 @@
-package com.greenteam.emptyfridge;
+package com.music.player;
 
 import io.flutter.embedding.android.FlutterActivity;
 

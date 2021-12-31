@@ -42,7 +42,7 @@ class RequestBuilders {
     MapEntry? tokenEntry,
     Map<String, String>? headers,
     Map<String, String>? params,
-    Map<String, String> body = const {},
+    Map<String, String> data = const {},
   }) {
     url = _attachParams(
       url: url ?? NetworkService.instance.baseUrl,
@@ -59,7 +59,7 @@ class RequestBuilders {
     return PostRequestModel(
       url: url,
       headers: headers,
-      body: body,
+      data: data,
     );
   }
 
@@ -70,7 +70,7 @@ class RequestBuilders {
     MapEntry? tokenEntry,
     Map<String, String>? headers,
     Map<String, String>? params,
-    Map<String, String> body = const {},
+    Map<String, String> data = const {},
   }) {
     url = _attachParams(
       url: url ?? NetworkService.instance.baseUrl,
@@ -87,7 +87,7 @@ class RequestBuilders {
     return PutRequestModel(
       url: url,
       headers: headers,
-      body: body,
+      data: data,
     );
   }
 
@@ -124,7 +124,7 @@ class RequestBuilders {
     MapEntry? tokenEntry,
     Map<String, String>? headers,
     Map<String, String>? params,
-    Map<String, String> body = const {},
+    Map<String, String> data = const {},
   }) {
     url = _attachParams(
       url: url ?? NetworkService.instance.baseUrl,
@@ -141,7 +141,7 @@ class RequestBuilders {
     return PatchRequestModel(
       url: url,
       headers: headers,
-      body: body,
+      data: data,
     );
   }
 
