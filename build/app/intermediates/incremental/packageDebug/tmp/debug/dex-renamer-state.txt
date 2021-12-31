@@ -1,4 +1,4 @@
-#Wed Nov 17 13:37:42 EET 2021
+#Fri Dec 31 10:08:07 EET 2021
 base.0=C\:\\Users\\Admin\\IdeaProjects\\music_player\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
