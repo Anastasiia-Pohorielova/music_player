@@ -8,4 +8,5 @@ class Routes {
   static const String loginPage = '/login';
   static const String registerPage = '/register';
   static const String enterPage = '/enter-page';
+  static const String homePage = '/home-page';
 }

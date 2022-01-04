@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 
 class CustomAppBar extends StatefulWidget {
-  final Widget action;
+  final Function(String) action;
 
   const CustomAppBar({
     required this.action,
@@ -19,20 +19,26 @@ class _CustomAppBarState extends State<CustomAppBar> {
     return MediaQuery.removePadding(
       context: context,
       removeBottom: true,
-      child: AppBar(
-        backgroundColor: AppColors.black,
-        automaticallyImplyLeading: true,
-        elevation: 0,
-        title: Container(
+      child: Container(
           width: double.infinity,
           height: 40,
           decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(5)),
           child: Center(
-            child: widget.action
+            child: TextField(
+              onChanged: widget.action,
+              decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.clear),
+                    onPressed: () {
+
+                    },
+                  ),
+                  hintText: 'Search...',
+                  border: InputBorder.none),
+            ),
           ),
         ),
-        centerTitle: true,
-      ),
     );
   }
 }

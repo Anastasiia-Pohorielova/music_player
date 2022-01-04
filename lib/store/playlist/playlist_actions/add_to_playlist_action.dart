@@ -1,4 +1,9 @@
 class AddToPlaylistAction {
   final String trackId;
-  AddToPlaylistAction({required this.trackId});
+  final String title;
+
+  AddToPlaylistAction({
+    required this.trackId,
+    required this.title,
+  });
 }

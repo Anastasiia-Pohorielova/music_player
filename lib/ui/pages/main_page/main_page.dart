@@ -62,8 +62,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         converter: MainPageVM.fromStore,
         builder: (BuildContext context, MainPageVM vm) {
           return MainLayout(
-            customAppBar: CustomAppBar(action: SizedBox(),),
-            body: NestedScrollView(
+            customAppBar: NestedScrollView(
               headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                 return <Widget>[
                   SliverAppBar(

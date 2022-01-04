@@ -1,4 +1,5 @@
 import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
+import 'package:music_player/models/playlist_model.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/store/playlist/playlist_actions/add_to_playlist_action.dart';
 import 'package:music_player/store/playlist/playlist_actions/delete_from_playlist_action.dart';
@@ -11,12 +12,12 @@ class PlaylistSelectors {
     return () => store.dispatch(GetPlaylistAction());
   }
 
-  static List<TrackDto> getPlaylist(Store<AppState> store) {
-    return store.state.playlistState.playlist;
+  static List<PlaylistModel> getPlaylist(Store<AppState> store) {
+    return store.state.playlistState.playlists;
   }
 
   static Function(String) addToPlaylist(Store<AppState> store) {
-    return (trackId) => store.dispatch(AddToPlaylistAction(trackId: trackId));
+    return (trackId) => store.dispatch(AddToPlaylistAction(trackId: trackId, title: ''));
   }
 
   static Function(String) deleteFromPlaylist(Store<AppState> store) {

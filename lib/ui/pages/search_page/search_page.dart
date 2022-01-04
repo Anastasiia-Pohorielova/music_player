@@ -23,21 +23,7 @@ class _SearchPageState extends State<SearchPage> {
       builder: (BuildContext context, SearchPageVM vm) {
         return MainLayout(
           customAppBar: CustomAppBar(
-            action: TextField(
-              onChanged: (text) {
-                vm.getAlbums(text);
-              },
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.clear),
-                    onPressed: () {
-                      /* Clear the search field */
-                    },
-                  ),
-                  hintText: 'Search...',
-                  border: InputBorder.none),
-            ),
+            action: (text) => vm.getAlbums(text),
           ),
           body: Container(
             child: vm.albums.isNotEmpty ? ListView.builder(

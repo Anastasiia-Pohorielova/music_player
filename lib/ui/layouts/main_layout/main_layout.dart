@@ -23,27 +23,26 @@ class MainLayout extends StatelessWidget {
       color: AppColors.transparent,
       child: Container(
         decoration: BoxDecoration(gradient: isPadding ? AppGradient.albumGradient : null),
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).padding.top,
+          left: 10.0,
+          right: 10.0,
+        ),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            customAppBar,
-            if(body != null) Padding(
-              padding: isPadding
-                  ? const EdgeInsets.only(
-                      top: 100.0,
-                      left: 10.0,
-                      right: 10.0,
-                    )
-                  : EdgeInsets.zero,
-              child: Scaffold(
-                backgroundColor: AppColors.transparent,
-                body: body,
-                resizeToAvoidBottomInset: false,
+            Scaffold(
+              backgroundColor: AppColors.transparent,
+              appBar: PreferredSize(
+                preferredSize: Size(0.0, 30.0),
+                child: customAppBar,
               ),
+              body: body,
+              resizeToAvoidBottomInset: false,
             ),
-            if(isBottomBar) CustomBottomBar(),
+            if (isBottomBar) CustomBottomBar(),
           ],
         ),
       ),

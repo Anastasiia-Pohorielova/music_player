@@ -9,9 +9,7 @@ import 'package:music_player/res/const.dart';
 import 'package:music_player/res/locales.dart';
 import 'package:music_player/services/route_service/route_builder.dart';
 import 'package:music_player/store/application/app_state.dart';
-import 'package:music_player/ui/pages/auth_page/auth_page.dart';
 import 'package:music_player/ui/pages/auth_page/enter_page.dart';
-import 'package:music_player/ui/pages/onboarding_page/onboarding_page.dart';
 import 'package:redux/redux.dart';
 
 class Application extends StatefulWidget {

@@ -12,7 +12,7 @@ class RouteSelectors {
 
   static NavigateToAction? get goToSplashScreenAction => RouteManager.instance.push(Routes.splashScreen);
 
-  static NavigateToAction? get goToHomePageAction => RouteManager.instance.push(Routes.mainPage);
+  static NavigateToAction? get goToHomePageAction => RouteManager.instance.push(Routes.homePage);
 
   static NavigateToAction? get goToRegisterPageAction => RouteManager.instance.push(Routes.registerPage);
 

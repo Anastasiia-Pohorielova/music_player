@@ -7,14 +7,17 @@ import 'package:redux/redux.dart';
 
 class CustomBottomBarVM {
   final void Function() goToSearchPage;
+  final void Function() goToHomePage;
 
   CustomBottomBarVM({
     required this.goToSearchPage,
+    required this.goToHomePage,
   });
 
   static CustomBottomBarVM fromStore(Store<AppState> store) {
     return CustomBottomBarVM(
    goToSearchPage: RouteSelectors.goToSearchPage(store),
+   goToHomePage: RouteSelectors.goToHomePage(store),
     );
   }
 }

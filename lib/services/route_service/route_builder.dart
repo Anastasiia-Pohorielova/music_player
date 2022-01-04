@@ -4,6 +4,7 @@ import 'package:music_player/ui/pages/album_page/album_page.dart';
 import 'package:music_player/ui/pages/auth_page/auth_page.dart';
 import 'package:music_player/ui/pages/auth_page/enter_page.dart';
 import 'package:music_player/ui/pages/auth_page/register_page.dart';
+import 'package:music_player/ui/pages/home_page/home_page.dart';
 import 'package:music_player/ui/pages/main_page/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player/ui/pages/player_page/player_page.dart';
@@ -22,6 +23,11 @@ class RouteBuilder {
       case Routes.searchPage:
         return _defaultRoute(
           page: SearchPage(),
+          settings: settings,
+        );
+      case Routes.homePage:
+        return _defaultRoute(
+          page: HomePage(),
           settings: settings,
         );
       case Routes.loginPage:

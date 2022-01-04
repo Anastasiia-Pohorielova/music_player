@@ -6,6 +6,7 @@ import 'package:music_player/store/song_store/song_actions/get_album_action.dart
 import 'package:music_player/store/song_store/song_actions/get_tracklist_action.dart';
 import 'package:music_player/store/song_store/song_actions/save_albums_action.dart';
 import 'package:music_player/store/song_store/song_actions/save_tracklist_action.dart';
+import 'package:music_player/utils/logger.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -28,6 +29,7 @@ class SongEpics {
   static Stream<dynamic> getTrackList(Stream<dynamic> actions, EpicStore<AppState> store) {
     return actions.whereType<GetTracklistAction>().switchMap((action) async* {
       final List<TrackDto>? trackList = await SongRepository.instance.getTrackList(action, store.state.songState.albums[action.id].urlTrackList);
+      Log.d('tracklist', trackList!.first.title);
       if (trackList == null) {
         return;
       }

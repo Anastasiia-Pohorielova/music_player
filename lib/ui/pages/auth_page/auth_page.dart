@@ -37,14 +37,6 @@ class _AuthPageState extends State<AuthPage> {
     super.dispose();
   }
 
-  Future<void> login() async {
-    final user = await auth.signInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
-    );
-  //  print(user.credential!.token);
-  }
-
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, AuthPageVM>(
@@ -86,10 +78,7 @@ class _AuthPageState extends State<AuthPage> {
               ),
               Center(
                 child: InkWell(
-                  onTap: () {
-                    login();
-                    vm.goToSearchPage();
-                  },
+                  onTap: () => vm.loginWithEmail(emailController.text, passwordController.text),
                   child: Container(
                     alignment: Alignment.center,
                     margin: const EdgeInsets.only(top: 20.0),
