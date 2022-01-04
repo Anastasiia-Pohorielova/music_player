@@ -148,7 +148,6 @@ class _AlbumPageState extends State<AlbumPage> {
               ],
             ),
           ),
-          body: SizedBox(),
         );
       },
     );

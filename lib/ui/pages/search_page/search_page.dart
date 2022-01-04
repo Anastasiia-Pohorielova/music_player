@@ -19,7 +19,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, SearchPageVM>(
       converter: SearchPageVM.fromStore,
-    //  onInitialBuild: (SearchPageVM vm) => vm.getAlbums('a'),
+      onInitialBuild: (SearchPageVM vm) => vm.getAlbums('a'),
       builder: (BuildContext context, SearchPageVM vm) {
         return MainLayout(
           customAppBar: CustomAppBar(
@@ -39,45 +39,42 @@ class _SearchPageState extends State<SearchPage> {
                   border: InputBorder.none),
             ),
           ),
-          body: SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
-            child: Container(
-              child: vm.albums.isNotEmpty ? ListView.builder(
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                    onTap: () => vm.goToAlbumPage(
-                      AlbumPageData(
-                        album: vm.albums[index],
-                        index: index,
+          body: Container(
+            child: vm.albums.isNotEmpty ? ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                return InkWell(
+                  onTap: () => vm.goToAlbumPage(
+                    AlbumPageData(
+                      album: vm.albums[index],
+                      index: index,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Image.network(vm.albums[index].cover, height: 100.0, width: 100.0,),
                       ),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Image.network(vm.albums[index].cover, height: 100.0, width: 100.0,),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              vm.albums[index].title,
+                              style: AppTextStyles.s14fw500White,
+                            ),
+                            Text(
+                              vm.albums[index].artist,
+                              style: AppTextStyles.s12fw400GreyLight,
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15.0),
-                          child: Column(
-                            children: [
-                              Text(
-                                vm.albums[index].title,
-                                style: AppTextStyles.s14fw500White,
-                              ),
-                              Text(
-                                vm.albums[index].artist,
-                                style: AppTextStyles.s12fw400GreyLight,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ) : const SizedBox(),
-            ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ) : const SizedBox(),
           ),
         );
       },

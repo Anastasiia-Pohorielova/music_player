@@ -115,7 +115,7 @@ class _PlayerPageState extends State<PlayerPage> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(audioPlayer.getCurrentAudioImage!.path),
+                              image: NetworkImage(audioPlayer.getCurrentAudioImage!.path ?? widget.cover),
                               fit: BoxFit.fill,
                             ),
                           ),

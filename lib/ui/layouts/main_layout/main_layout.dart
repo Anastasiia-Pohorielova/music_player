@@ -5,12 +5,12 @@ import 'package:music_player/ui/pages/shared/custom_bottom_bar/custom_bottom_bar
 
 class MainLayout extends StatelessWidget {
   final Widget customAppBar;
-  final Widget body;
+  final Widget? body;
   final bool isBottomBar;
   final bool isPadding;
 
   const MainLayout({
-    required this.body,
+    this.body,
     this.isBottomBar = true,
     this.isPadding = true,
     this.customAppBar = const SizedBox(),
@@ -28,13 +28,8 @@ class MainLayout extends StatelessWidget {
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            Positioned(
-              top: 0.0,
-              left: 0.0,
-              right: 0.0,
-              child: customAppBar,
-            ),
-            Padding(
+            customAppBar,
+            if(body != null) Padding(
               padding: isPadding
                   ? const EdgeInsets.only(
                       top: 100.0,
@@ -45,7 +40,7 @@ class MainLayout extends StatelessWidget {
               child: Scaffold(
                 backgroundColor: AppColors.transparent,
                 body: body,
-                resizeToAvoidBottomInset: true,
+                resizeToAvoidBottomInset: false,
               ),
             ),
             if(isBottomBar) CustomBottomBar(),

@@ -48,7 +48,6 @@ class _ApplicationState extends State<Application> {
             home: EnterPage(),
             locale: Locale(Locales.base),
             supportedLocales: FlutterDictionaryDelegate.getSupportedLocales,
-            localizationsDelegates: FlutterDictionaryDelegate.getLocalizationDelegates,
             builder: (BuildContext context, Widget? child) {
               return MediaQuery(
                 data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
