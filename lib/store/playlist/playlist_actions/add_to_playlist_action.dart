@@ -1,9 +1,12 @@
+import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
+import 'package:music_player/models/track_model.dart';
+
 class AddToPlaylistAction {
-  final String trackId;
-  final String title;
+  final TrackModel newTrack;
+  final String playlistTitle;
 
   AddToPlaylistAction({
-    required this.trackId,
-    required this.title,
+    required this.newTrack,
+    required this.playlistTitle,
   });
 }

@@ -31,6 +31,15 @@ class AppTextStyles {
     );
   }
 
+  static TextStyle get s18fw500White {
+    return GoogleFonts.roboto(
+      fontSize: 18.0,
+      color: AppColors.white,
+      fontWeight: FontWeight.w500,
+      height: 1.0,
+    );
+  }
+
   static TextStyle get s12fw400White {
     return GoogleFonts.roboto(
       fontSize: 12.0,

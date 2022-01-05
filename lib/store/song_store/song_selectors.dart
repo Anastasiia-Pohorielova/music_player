@@ -1,5 +1,6 @@
 import 'package:music_player/models/dto/chart_dto.dart';
 import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
+import 'package:music_player/models/track_model.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/store/song_store/song_actions/get_album_action.dart';
 import 'package:music_player/store/song_store/song_actions/get_chart_action.dart';

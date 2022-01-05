@@ -10,7 +10,7 @@ class PlaylistRepository {
   static final PlaylistRepository instance = PlaylistRepository._privateConstructor();
 
   Future<void> addToPlaylist(AddToPlaylistAction action) async {
-    return PlaylistService.instance.addToPlaylist(action);
+  //  return PlaylistService.instance.addToPlaylist(action);
   }
 
   Future<void> deleteFromPlaylist(DeleteFromPlaylistAction action) async {

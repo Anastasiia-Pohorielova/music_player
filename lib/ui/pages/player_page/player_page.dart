@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
 import 'package:music_player/models/pages/album_page_data.dart';
+import 'package:music_player/models/track_model.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_gradient.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
@@ -37,6 +38,7 @@ class _PlayerPageState extends State<PlayerPage> {
   double value = 0;
   bool openPage = false;
   bool isPaused = false;
+  int currentIndex = 0;
 
   @override
   void initState() {
@@ -47,9 +49,9 @@ class _PlayerPageState extends State<PlayerPage> {
   Future<void> playAudioNetwork(List<TrackDto> songUrl, int startIndex) async {
     await audioPlayer.open(
       Playlist(
-        audios: List.generate(
-          songUrl.length,
-          (index) => Audio.network(
+        audios: List.generate(songUrl.length, (index) {
+          currentIndex = index;
+          return Audio.network(
             songUrl[index].preview,
             metas: Metas(
               id: widget.trackId,
@@ -57,12 +59,13 @@ class _PlayerPageState extends State<PlayerPage> {
               album: widget.albumTitle,
               image: MetasImage.network(widget.cover),
             ),
-          ),
-        ),
+          );
+        }),
         startIndex: startIndex,
       ),
       autoStart: false,
     );
+
     openPage = false;
     setState(() {});
   }
@@ -98,16 +101,26 @@ class _PlayerPageState extends State<PlayerPage> {
                             right: 20.0,
                             child: InkWell(
                               onTap: () {
-                                if (vm.playlist.where((element) => element.title == vm.albumPlaylist[widget.id].title).isNotEmpty) {
-                                  vm.deleteTrack(widget.trackId);
+                                if (vm.playlist
+                                    .where((element) =>
+                                        element.tracks.where((element) => element.trackDto.trackId == vm.albumPlaylist[widget.id].trackId).isNotEmpty)
+                                    .isNotEmpty) {
+                                  vm.deleteTrack(int.parse(widget.trackId));
                                 } else {
-                                  vm.addTrack(widget.trackId);
+                                  vm.goToAddToPlaylistPage(TrackModel(
+                                      trackDto: TrackDto(
+                                        title: vm.albumPlaylist[currentIndex].title,
+                                        duration: vm.albumPlaylist[currentIndex].duration,
+                                        preview: vm.albumPlaylist[currentIndex].preview,
+                                        trackId: vm.albumPlaylist[currentIndex].trackId,
+                                      ),
+                                      albumName: widget.albumTitle,
+                                      coverUrl: widget.cover));
                                 }
                               },
                               child: Icon(
-                                vm.playlist.where((element) => element.title == vm.albumPlaylist[widget.id].title).isNotEmpty
-                                    ? Icons.remove
-                                    : Icons.add,
+                           //     vm.playlist.where((element) => element.title == vm.albumPlaylist[widget.id].title).isNotEmpty ? Icons.remove
+                                Icons.add,
                                 color: AppColors.white,
                                 size: 20.0,
                               ),

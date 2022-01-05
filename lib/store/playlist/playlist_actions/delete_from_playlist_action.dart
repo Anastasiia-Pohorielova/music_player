@@ -1,4 +1,4 @@
 class DeleteFromPlaylistAction {
-  final String trackId;
+  final int trackId;
   DeleteFromPlaylistAction({required this.trackId});
 }

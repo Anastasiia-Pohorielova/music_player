@@ -14,16 +14,16 @@ class PlaylistService {
 
   static final PlaylistService instance = PlaylistService._privateConstructor();
 
-  Future<void> addToPlaylist(AddToPlaylistAction action) async {
-    final response = await NetworkService.instance.request(PostRequestModel(
-        url:
-            'http://api.deezer.com/playlist/9717962062/tracks?access_token=franhx4bvAvQcw60tGoN4Th40ByYcYGPGL7hIJgH2CPhQ44Mo7K&request_method=post&songs=${action.trackId}'));
-    if (response.error == null) {
-      return;
-    } else {
-      throw Exception('Failed to add track');
-    }
-  }
+  // Future<void> addToPlaylist(AddToPlaylistAction action) async {
+  //   final response = await NetworkService.instance.request(PostRequestModel(
+  //       url:
+  //           'http://api.deezer.com/playlist/9717962062/tracks?access_token=franhx4bvAvQcw60tGoN4Th40ByYcYGPGL7hIJgH2CPhQ44Mo7K&request_method=post&songs=${action.trackId}'));
+  //   if (response.error == null) {
+  //     return;
+  //   } else {
+  //     throw Exception('Failed to add track');
+  //   }
+
 
   Future<void> deleteFromPlaylist(DeleteFromPlaylistAction action) async {
     final response = await NetworkService.instance.request(DeleteRequestModel(

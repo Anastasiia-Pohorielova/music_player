@@ -25,3 +25,11 @@ class PlayerPageData implements IPageData {
     required this.trackId,
   });
 }
+
+class PlaylistPageData implements IPageData {
+  final String title;
+
+  const PlaylistPageData({
+    required this.title,
+  });
+}

@@ -8,6 +8,7 @@ import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
 
 import 'package:music_player/ui/pages/auth_page/auth_page_vm.dart';
+import 'package:music_player/ui/pages/shared/custom_button.dart';
 
 class EnterPage extends StatefulWidget {
   const EnterPage({Key? key}) : super(key: key);
@@ -51,22 +52,9 @@ class _EnterPageState extends State<EnterPage> {
                 ),
               ),
               Center(
-                child: InkWell(
-                  onTap: () => vm.goToRegisterPage(),
-                  child: Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.only(top: 40.0),
-                    height: 45.0,
-                    width: 200.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30.0),
-                      color: AppColors.green,
-                    ),
-                    child: Text(
-                      'Register',
-                      style: AppTextStyles.s14fw500White.copyWith(fontSize: 20.0),
-                    ),
-                  ),
+                child: CustomButton(
+                  onTap: vm.goToRegisterPage,
+                  title: 'Register',
                 ),
               ),
               InkWell(

@@ -1,5 +1,8 @@
+import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
 import 'package:music_player/models/pages/album_page_data.dart';
+import 'package:music_player/models/track_model.dart';
 import 'package:music_player/services/route_service/res/routes.dart';
+import 'package:music_player/ui/pages/add_to_playlist_page/add_to_playlist_page.dart';
 import 'package:music_player/ui/pages/album_page/album_page.dart';
 import 'package:music_player/ui/pages/auth_page/auth_page.dart';
 import 'package:music_player/ui/pages/auth_page/enter_page.dart';
@@ -8,6 +11,7 @@ import 'package:music_player/ui/pages/home_page/home_page.dart';
 import 'package:music_player/ui/pages/main_page/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player/ui/pages/player_page/player_page.dart';
+import 'package:music_player/ui/pages/playlist_page/playlist_page.dart';
 import 'package:music_player/ui/pages/search_page/search_page.dart';
 
 class RouteBuilder {
@@ -25,6 +29,12 @@ class RouteBuilder {
           page: SearchPage(),
           settings: settings,
         );
+      case Routes.addToPlaylistPage:
+        final TrackModel trackData = settings.arguments as TrackModel;
+        return _defaultRoute(
+          page: AddToPlaylistPage(newTrack: trackData),
+          settings: settings,
+        );
       case Routes.homePage:
         return _defaultRoute(
           page: HomePage(),
@@ -38,6 +48,12 @@ class RouteBuilder {
       case Routes.enterPage:
         return _defaultRoute(
           page: EnterPage(),
+          settings: settings,
+        );
+      case Routes.playlistPage:
+        final PlaylistPageData data = settings.arguments as PlaylistPageData;
+        return _defaultRoute(
+          page: PlaylistPage(playlistTitle: data.title),
           settings: settings,
         );
       case Routes.registerPage:

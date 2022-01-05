@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:music_player/models/dto/chart_dto.dart';
 import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
+import 'package:music_player/models/track_model.dart';
 import 'package:music_player/store/shared/reducer.dart';
 import 'package:music_player/store/song_store/song_actions/save_albums_action.dart';
 import 'package:music_player/store/song_store/song_actions/save_chart_action.dart';

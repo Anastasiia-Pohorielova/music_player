@@ -6,9 +6,8 @@ import 'package:music_player/res/app_styles/app_text_styles.dart';
 class AlbumAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final String imageUrl;
-  final Function() pop;
+
   const AlbumAppBar({
-    required this.pop,
     required this.imageUrl,
     required this.expandedHeight,
   });
@@ -66,7 +65,7 @@ class AlbumAppBar extends SliverPersistentHeaderDelegate {
           left: 10.0,
           top: 20.0,
           child: InkWell(
-            onTap: pop,
+            onTap: Navigator.of(context).pop,
             child: Icon(
               Icons.arrow_back_outlined,
               color: AppColors.white,

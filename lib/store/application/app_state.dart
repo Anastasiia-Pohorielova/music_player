@@ -41,7 +41,7 @@ class AppState {
 
   static final getAppEpic = combineEpics<AppState>([
     SongEpics.indexEpic,
-    PlaylistEpics.indexEpic,
+    //PlaylistEpics.indexEpic,
     AuthenticationEpics.indexEpic,
   ]);
 }
