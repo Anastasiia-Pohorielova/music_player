@@ -4,8 +4,8 @@ import 'package:music_player/models/track_model.dart';
 import 'package:music_player/services/route_service/res/routes.dart';
 import 'package:music_player/ui/pages/add_to_playlist_page/add_to_playlist_page.dart';
 import 'package:music_player/ui/pages/album_page/album_page.dart';
+import 'package:music_player/ui/pages/auth_page/login_page.dart';
 import 'package:music_player/ui/pages/auth_page/auth_page.dart';
-import 'package:music_player/ui/pages/auth_page/enter_page.dart';
 import 'package:music_player/ui/pages/auth_page/register_page.dart';
 import 'package:music_player/ui/pages/home_page/home_page.dart';
 import 'package:music_player/ui/pages/main_page/main_page.dart';
@@ -19,11 +19,6 @@ class RouteBuilder {
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.mainPage:
-        return _defaultRoute(
-          page: MainPage(),
-          settings: settings,
-        );
       case Routes.searchPage:
         return _defaultRoute(
           page: SearchPage(),
@@ -78,13 +73,14 @@ class RouteBuilder {
             cover: data.cover,
             id: data.id,
             trackId: data.trackId,
+            artistName: data.artistName,
           ),
           settings: settings,
         );
       default:
         return _defaultRoute(
           settings: settings,
-          page: MainPage(),
+          page: EnterPage(),
         );
     }
   }

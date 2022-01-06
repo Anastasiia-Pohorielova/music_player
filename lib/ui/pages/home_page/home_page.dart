@@ -3,9 +3,10 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:music_player/models/pages/album_page_data.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
+import 'package:music_player/res/image_assets.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
-import 'package:music_player/ui/pages/player_page/player_page_vm.dart';
+import 'package:music_player/ui/pages/home_page/home_page_vm.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,9 +18,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, PlayerPageVM>(
-      converter: PlayerPageVM.fromStore,
-      builder: (BuildContext context, PlayerPageVM vm) {
+    return StoreConnector<AppState, HomePageVM>(
+      converter: HomePageVM.fromStore,
+      builder: (BuildContext context, HomePageVM vm) {
         return MainLayout(
           customAppBar: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,6 +43,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 )
               : ListView.builder(
+                  padding: const EdgeInsets.only(top: 20.0),
                   scrollDirection: Axis.horizontal,
                   itemCount: vm.playlist.length,
                   itemBuilder: (BuildContext ctx, int index) {
@@ -49,12 +51,23 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         InkWell(
                           onTap: () => vm.goToPlaylistPage(PlaylistPageData(title: vm.playlist[index].title)),
-                          child: Container(
-                            margin: const EdgeInsets.all(20.0),
-                            height: 150.0,
-                            width: 150.0,
-                            color: AppColors.greyDark,
-                            child: Text(vm.playlist[index].title),
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.all(20.0),
+                                alignment: Alignment.bottomCenter,
+                                color: AppColors.greenLight,
+                                child: Image.asset(
+                                  ImageAssets.playlist,
+                                  width: 200.0,
+                                  height: 150.0,
+                                ),
+                              ),
+                              Text(
+                                vm.playlist[index].title,
+                                style: AppTextStyles.s24fw700White,
+                              ),
+                            ],
                           ),
                         ),
                       ],

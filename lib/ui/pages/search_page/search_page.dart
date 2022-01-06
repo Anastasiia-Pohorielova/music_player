@@ -50,7 +50,7 @@ class _SearchPageState extends State<SearchPage> {
                               style: AppTextStyles.s14fw500White,
                             ),
                             Text(
-                              vm.albums[index].artist,
+                              vm.albums[index].artist.name,
                               style: AppTextStyles.s12fw400GreyLight,
                             ),
                           ],

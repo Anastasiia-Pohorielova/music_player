@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
+import 'package:music_player/models/interfaces/i_playlist_dto.dart';
 import 'package:music_player/models/pages/album_page_data.dart';
 import 'package:music_player/models/pages/interfaces/i_page_data.dart';
 import 'package:music_player/models/track_model.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
+import 'package:music_player/ui/layouts/widgets/player_widget.dart';
 import 'package:music_player/ui/pages/album_page/alibum_app_bar.dart';
 
-class PlaylistPageLayout extends StatelessWidget {
+class PlaylistPageLayout extends StatefulWidget {
   final String cover;
   final String artist;
   final String playlistTitle;
-  final List<dynamic> trackList;
+  final List<TrackModel> trackList;
   final Function(IPageData) goToTrackPage;
 
   const PlaylistPageLayout({
@@ -25,13 +27,21 @@ class PlaylistPageLayout extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _PlaylistPageLayoutState createState() => _PlaylistPageLayoutState();
+}
+
+class _PlaylistPageLayoutState extends State<PlaylistPageLayout> {
+  bool isBottomPlayer = false;
+
+  @override
   Widget build(BuildContext context) {
     return MainLayout(
+      playerWidget: isBottomPlayer ? PlayerWidget(trackList: widget.trackList) : null,
       body: CustomScrollView(
         slivers: [
           SliverPersistentHeader(
             delegate: AlbumAppBar(
-              imageUrl: cover,
+              imageUrl: widget.cover,
               expandedHeight: 300.0,
             ),
             pinned: true,
@@ -41,12 +51,13 @@ class PlaylistPageLayout extends StatelessWidget {
               (_, index) => ListTile(
                 title: index != 0
                     ? InkWell(
-                        onTap: () => goToTrackPage(
+                        onTap: () => widget.goToTrackPage(
                           PlayerPageData(
-                            id: index,
-                            trackId: trackList.first.runtimeType == TrackDto ? trackList[index-1].trackId.toString() : trackList[index-1].trackDto.trackId.toString(),
-                            cover: cover,
-                            albumTitle: playlistTitle,
+                            id: index - 1,
+                            trackId: widget.trackList[index - 1].trackDto.id.toString(),
+                            cover: widget.cover,
+                            albumTitle: widget.playlistTitle,
+                            artistName: widget.artist,
                           ),
                         ),
                         child: Row(
@@ -56,11 +67,11 @@ class PlaylistPageLayout extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  trackList.first.runtimeType == TrackDto ? trackList[index-1].title : trackList[index-1].trackDto.title,
+                                  widget.trackList[index - 1].trackDto.title,
                                   style: AppTextStyles.s14fw500White,
                                 ),
                                 Text(
-                                  artist,
+                                  widget.artist,
                                   style: AppTextStyles.s14fw500White,
                                 ),
                               ],
@@ -73,22 +84,22 @@ class PlaylistPageLayout extends StatelessWidget {
                         ),
                       )
                     : Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 30.0),
+                        padding: const EdgeInsets.symmetric(vertical: 30.0,),
                         child: Stack(
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  playlistTitle,
+                                  widget.playlistTitle,
                                   style: AppTextStyles.s24fw700White,
                                 ),
                                 Text(
-                                  artist,
+                                  widget.artist,
                                   style: AppTextStyles.s14fw500White,
                                 ),
                                 Text(
-                                  playlistTitle,
+                                  widget.playlistTitle,
                                   style: AppTextStyles.s12fw400GreyLight,
                                 ),
                                 Row(
@@ -120,17 +131,24 @@ class PlaylistPageLayout extends StatelessWidget {
                             ),
                             Positioned(
                               left: MediaQuery.of(context).size.width - 100.0,
-                              child: Icon(
-                                Icons.play_circle_filled,
-                                size: 50.0,
-                                color: AppColors.green,
+                              child: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    isBottomPlayer = true;
+                                  });
+                                },
+                                child: Icon(
+                                  Icons.play_circle_filled,
+                                  size: 50.0,
+                                  color: AppColors.green,
+                                ),
                               ),
                             )
                           ],
                         ),
                       ),
               ),
-              childCount: trackList.length+1,
+              childCount: widget.trackList.length + 1,
             ),
           )
         ],

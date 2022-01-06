@@ -7,13 +7,16 @@ import 'package:music_player/services/dialog_service/dialog_service.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/dialogs/new_playlist_dialog.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
-import 'package:music_player/ui/pages/player_page/player_page_vm.dart';
+import 'package:music_player/ui/pages/add_to_playlist_page/add_to_playlist_page_vm.dart';
 import 'package:music_player/ui/pages/shared/custom_button.dart';
 
 class AddToPlaylistPage extends StatefulWidget {
   final TrackModel newTrack;
 
-  const AddToPlaylistPage({required this.newTrack, Key? key,}) : super(key: key);
+  const AddToPlaylistPage({
+    required this.newTrack,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _AddToPlaylistPageState createState() => _AddToPlaylistPageState();
@@ -22,9 +25,9 @@ class AddToPlaylistPage extends StatefulWidget {
 class _AddToPlaylistPageState extends State<AddToPlaylistPage> {
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, PlayerPageVM>(
-      converter: PlayerPageVM.fromStore,
-      builder: (BuildContext context, PlayerPageVM vm) {
+    return StoreConnector<AppState, AddToPlaylistPageVM>(
+      converter: AddToPlaylistPageVM.fromStore,
+      builder: (BuildContext context, AddToPlaylistPageVM vm) {
         return MainLayout(
           customAppBar: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,7 +75,10 @@ class _AddToPlaylistPageState extends State<AddToPlaylistPage> {
                               alignment: Alignment.center,
                               child: Text('P'),
                             ),
-                            Text(vm.playlist[index].title, style: AppTextStyles.s18fw500White,),
+                            Text(
+                              vm.playlist[index].title,
+                              style: AppTextStyles.s18fw500White,
+                            ),
                           ],
                         ),
                       );

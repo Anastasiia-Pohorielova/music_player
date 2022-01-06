@@ -11,12 +11,15 @@ TrackDto _$TrackDtoFromJson(Map<String, dynamic> json) {
     title: json['title'] as String,
     duration: json['duration'] as int,
     preview: json['preview'] as String,
-    trackId: json['id'] as int,
+    artist: ArtistDto.fromJson(json['artist'] as Map<String, dynamic>),
+    id: json['id'] as int?,
   );
 }
 
-Map<String, dynamic> _$TrackDtoToJson(TrackDto instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$TrackDtoToJson(TrackDto instance) => <String, dynamic>{
       'title': instance.title,
       'duration': instance.duration,
+      'preview': instance.preview,
+      'id': instance.id,
+      'artist': instance.artist,
     };

@@ -24,7 +24,6 @@ class PlaylistService {
   //     throw Exception('Failed to add track');
   //   }
 
-
   Future<void> deleteFromPlaylist(DeleteFromPlaylistAction action) async {
     final response = await NetworkService.instance.request(DeleteRequestModel(
         url:
@@ -37,7 +36,8 @@ class PlaylistService {
   }
 
   Future<List<TrackDto>?> getPlaylist(GetPlaylistAction action) async {
-    final response = await NetworkService.instance.request(GetRequestModel(url: 'https://api.deezer.com/playlist/9717962062?access_token=franhx4bvAvQcw60tGoN4Th40ByYcYGPGL7hIJgH2CPhQ44Mo7K'));
+    final response = await NetworkService.instance
+        .request(GetRequestModel(url: 'https://api.deezer.com/playlist/9717962062?access_token=franhx4bvAvQcw60tGoN4Th40ByYcYGPGL7hIJgH2CPhQ44Mo7K'));
     if (response.error == null) {
       final decodedJsonList = jsonDecode(jsonEncode(response.response).toString());
       print(decodedJsonList);
@@ -45,11 +45,12 @@ class PlaylistService {
 
       return trackList
           .map((TrackDto trackDto) => TrackDto(
-        title: trackDto.title,
-        duration: trackDto.duration,
-        preview: trackDto.preview,
-        trackId: trackDto.trackId,
-      ))
+                title: trackDto.title,
+                duration: trackDto.duration,
+                preview: trackDto.preview,
+                id: trackDto.id,
+                artist: trackDto.artist,
+              ))
           .toList();
     } else {
       throw Exception('Failed to fetch data');

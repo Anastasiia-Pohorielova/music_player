@@ -30,4 +30,5 @@ class ImageAssets {
   static const String homePageCook = 'assets/svg/home_page_cook.svg';
   static const String loading = 'assets/gif/loading.gif';
   static const String background = 'assets/jpg/background.jpg';
+  static const String playlist = 'assets/png/playlist.png';
 }

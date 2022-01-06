@@ -1,3 +1,0 @@
-class GetChartAction {
-  GetChartAction();
-}

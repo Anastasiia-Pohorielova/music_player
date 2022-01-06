@@ -1,15 +1,15 @@
+import 'package:music_player/store/album_store/album_epics.dart';
+import 'package:music_player/store/album_store/album_state.dart';
 import 'package:music_player/store/authentication/authentication_epics.dart';
 import 'package:music_player/store/authentication/authentication_state.dart';
 import 'package:music_player/store/loader/loader_reducer.dart';
 import 'package:music_player/store/loader/loader_state.dart';
 import 'package:music_player/store/playlist/playlist_epics.dart';
 import 'package:music_player/store/playlist/playlist_state.dart';
-import 'package:music_player/store/song_store/song_epics.dart';
-import 'package:music_player/store/song_store/song_state.dart';
 import 'package:redux_epics/redux_epics.dart';
 
 class AppState {
-  final SongState songState;
+  final AlbumState songState;
   final PlaylistState playlistState;
   final AuthState authState;
   final LoaderState loaderState;
@@ -23,7 +23,7 @@ class AppState {
 
   factory AppState.initial() {
     return AppState(
-      songState: SongState.initial(),
+      songState: AlbumState.initial(),
       playlistState: PlaylistState.initial(),
       authState: AuthState.initial(),
       loaderState: LoaderState.initial(),
@@ -40,7 +40,7 @@ class AppState {
   }
 
   static final getAppEpic = combineEpics<AppState>([
-    SongEpics.indexEpic,
+    AlbumEpics.indexEpic,
     //PlaylistEpics.indexEpic,
     AuthenticationEpics.indexEpic,
   ]);

@@ -2,30 +2,26 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
-import 'package:music_player/models/pages/album_page_data.dart';
 import 'package:music_player/models/track_model.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
-import 'package:music_player/res/app_styles/app_gradient.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
-import 'package:music_player/services/dialog_service/dialog_service.dart';
 import 'package:music_player/store/application/app_state.dart';
-import 'package:music_player/store/loader/loader_state.dart';
-import 'package:music_player/store/playlist/playlist_actions/get_palylist_action.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
 import 'package:music_player/ui/pages/player_page/player_page_vm.dart';
-import 'package:music_player/ui/shared/loader_dialog.dart';
 
 class PlayerPage extends StatefulWidget {
   final int id;
   final String cover;
   final String albumTitle;
   final String trackId;
+  final String artistName;
 
   const PlayerPage({
     required this.albumTitle,
     required this.cover,
     required this.id,
     required this.trackId,
+    required this.artistName,
     Key? key,
   }) : super(key: key);
 
@@ -42,20 +38,20 @@ class _PlayerPageState extends State<PlayerPage> {
 
   @override
   void initState() {
+    currentIndex = widget.id;
     openPage = true;
     super.initState();
   }
 
-  Future<void> playAudioNetwork(List<TrackDto> songUrl, int startIndex) async {
+  Future<void> playAudioNetwork(List<TrackModel> songUrl, int startIndex) async {
     await audioPlayer.open(
       Playlist(
         audios: List.generate(songUrl.length, (index) {
-          currentIndex = index;
           return Audio.network(
-            songUrl[index].preview,
+            songUrl[index].trackDto.preview,
             metas: Metas(
               id: widget.trackId,
-              title: songUrl[index].title,
+              title: songUrl[index].trackDto.title,
               album: widget.albumTitle,
               image: MetasImage.network(widget.cover),
             ),
@@ -65,7 +61,6 @@ class _PlayerPageState extends State<PlayerPage> {
       ),
       autoStart: false,
     );
-
     openPage = false;
     setState(() {});
   }
@@ -103,23 +98,27 @@ class _PlayerPageState extends State<PlayerPage> {
                               onTap: () {
                                 if (vm.playlist
                                     .where((element) =>
-                                        element.tracks.where((element) => element.trackDto.trackId == vm.albumPlaylist[widget.id].trackId).isNotEmpty)
+                                        element.tracks.where((element) => element.trackDto.id == vm.albumPlaylist[widget.id-1].trackDto.id).isNotEmpty)
                                     .isNotEmpty) {
-                                  vm.deleteTrack(int.parse(widget.trackId));
+                                  //  vm.deleteTrack(int.parse(widget.trackId));
                                 } else {
-                                  vm.goToAddToPlaylistPage(TrackModel(
+                                  vm.goToAddToPlaylistPage(
+                                    TrackModel(
                                       trackDto: TrackDto(
-                                        title: vm.albumPlaylist[currentIndex].title,
-                                        duration: vm.albumPlaylist[currentIndex].duration,
-                                        preview: vm.albumPlaylist[currentIndex].preview,
-                                        trackId: vm.albumPlaylist[currentIndex].trackId,
+                                        title: vm.albumPlaylist[currentIndex].trackDto.title,
+                                        duration: vm.albumPlaylist[currentIndex].trackDto.duration,
+                                        preview: vm.albumPlaylist[currentIndex].trackDto.preview,
+                                        id: vm.albumPlaylist[currentIndex].trackDto.id,
+                                        artist: vm.albumPlaylist[currentIndex].trackDto.artist,
                                       ),
                                       albumName: widget.albumTitle,
-                                      coverUrl: widget.cover));
+                                      coverUrl: widget.cover,
+                                    ),
+                                  );
                                 }
                               },
                               child: Icon(
-                           //     vm.playlist.where((element) => element.title == vm.albumPlaylist[widget.id].title).isNotEmpty ? Icons.remove
+                                //     vm.playlist.where((element) => element.title == vm.albumPlaylist[widget.id].title).isNotEmpty ? Icons.remove
                                 Icons.add,
                                 color: AppColors.white,
                                 size: 20.0,
@@ -198,6 +197,7 @@ class _PlayerPageState extends State<PlayerPage> {
                                       setState(() {
                                         audioPlayer.stop();
                                         audioPlayer.previous();
+                                        currentIndex -- ;
                                       });
                                     },
                                     child: const Icon(
@@ -228,6 +228,7 @@ class _PlayerPageState extends State<PlayerPage> {
                                     onTap: () {
                                       setState(() {
                                         audioPlayer.next();
+                                        currentIndex ++;
                                       });
                                     },
                                     child: Icon(

@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_gradient.dart';
+import 'package:music_player/ui/layouts/widgets/player_widget.dart';
 import 'package:music_player/ui/pages/shared/custom_bottom_bar/custom_bottom_bar.dart';
 
 class MainLayout extends StatelessWidget {
   final Widget customAppBar;
-  final Widget? body;
+  final Widget body;
   final bool isBottomBar;
   final bool isPadding;
+  final PlayerWidget? playerWidget;
 
   const MainLayout({
-    this.body,
+    required this.body,
     this.isBottomBar = true,
     this.isPadding = true,
     this.customAppBar = const SizedBox(),
+    this.playerWidget,
     Key? key,
   }) : super(key: key);
 
@@ -23,11 +26,13 @@ class MainLayout extends StatelessWidget {
       color: AppColors.transparent,
       child: Container(
         decoration: BoxDecoration(gradient: isPadding ? AppGradient.albumGradient : null),
-        padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top,
-          left: 10.0,
-          right: 10.0,
-        ),
+        padding: isPadding
+            ? EdgeInsets.only(
+                top: MediaQuery.of(context).padding.top * 2,
+                left: 10.0,
+                right: 10.0,
+              )
+            : EdgeInsets.zero,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Stack(
@@ -39,9 +44,13 @@ class MainLayout extends StatelessWidget {
                 preferredSize: Size(0.0, 30.0),
                 child: customAppBar,
               ),
-              body: body,
+              body: Padding(
+                padding: EdgeInsets.only(bottom: playerWidget != null ? 100.0 : 50.0),
+                child: body,
+              ),
               resizeToAvoidBottomInset: false,
             ),
+            playerWidget ?? const SizedBox(),
             if (isBottomBar) CustomBottomBar(),
           ],
         ),

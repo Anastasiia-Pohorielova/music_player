@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:music_player/models/dto/chart_dto.dart';
-import 'package:music_player/models/pages/album_page_data.dart';
-import 'package:music_player/res/app_styles/app_colors.dart';
-import 'package:music_player/res/app_styles/app_text_styles.dart';
+import 'package:music_player/models/dto/album_dto.dart';
+import 'package:music_player/models/track_model.dart';
 import 'package:music_player/store/application/app_state.dart';
-import 'package:music_player/store/playlist/playlist_actions/get_palylist_action.dart';
-import 'package:music_player/store/song_store/song_actions/get_tracklist_action.dart';
-import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
 import 'package:music_player/ui/layouts/playlist_page_layout.dart';
 import 'package:music_player/ui/pages/album_page/album_page_vm.dart';
-
-import 'package:music_player/ui/pages/album_page/alibum_app_bar.dart';
 
 class AlbumPage extends StatefulWidget {
   final int index;
@@ -38,7 +31,7 @@ class _AlbumPageState extends State<AlbumPage> {
           goToTrackPage: vm.goToTrackPage,
           trackList: vm.trackList,
           cover: widget.album.cover,
-          artist: widget.album.artist,
+          artist: widget.album.artist.name,
           playlistTitle: widget.album.title,
         );
       },

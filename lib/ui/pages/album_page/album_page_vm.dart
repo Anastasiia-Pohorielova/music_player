@@ -1,15 +1,13 @@
-import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
 import 'package:music_player/models/pages/interfaces/i_page_data.dart';
 import 'package:music_player/models/track_model.dart';
+import 'package:music_player/store/album_store/album_selectors.dart';
 import 'package:music_player/store/application/app_state.dart';
-import 'package:music_player/store/playlist/playlist_selectors.dart';
 import 'package:music_player/store/shared/route_navigator/route_selectors.dart';
-import 'package:music_player/store/song_store/song_selectors.dart';
 import 'package:redux/redux.dart';
 
 class AlbumPageVM {
   final void Function(int) getTrackList;
-  final List<TrackDto> trackList;
+  final List<TrackModel> trackList;
   final void Function() pop;
   final void Function(IPageData) goToTrackPage;
   AlbumPageVM({
@@ -21,8 +19,8 @@ class AlbumPageVM {
 
   static AlbumPageVM fromStore(Store<AppState> store) {
     return AlbumPageVM(
-      trackList: SongSelectors.getTrackList(store),
-      getTrackList: SongSelectors.getTrackListFromApi(store),
+      trackList: AlbumSelectors.getTrackList(store),
+      getTrackList: AlbumSelectors.getTrackListFromApi(store),
       pop: RouteSelectors.doPop(store),
       goToTrackPage: RouteSelectors.goToTrackPage(store),
     );

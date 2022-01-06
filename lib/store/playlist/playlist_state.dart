@@ -46,7 +46,7 @@ class PlaylistState {
 
   PlaylistState _deleteTrackFromPlayList(DeleteFromPlaylistAction action) {
     for(var item in playlists) {
-      item.tracks.removeWhere((element) => element.trackDto.trackId == action.trackId);
+      item.tracks.removeWhere((element) => element.trackDto.id == action.trackId);
     }
     return copyWith(playlists: playlists);
   }
