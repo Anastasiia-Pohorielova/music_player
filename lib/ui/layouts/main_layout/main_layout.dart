@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:music_player/models/track_model.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_gradient.dart';
+import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/layouts/widgets/player_widget.dart';
+import 'package:music_player/ui/pages/album_page/album_page_vm.dart';
 import 'package:music_player/ui/pages/shared/custom_bottom_bar/custom_bottom_bar.dart';
 
 class MainLayout extends StatelessWidget {
@@ -23,6 +26,9 @@ class MainLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return StoreConnector<AppState, AlbumPageVM>(
+      converter: AlbumPageVM.fromStore,
+      builder: (BuildContext context, AlbumPageVM vm) {
     return Material(
       color: AppColors.transparent,
       child: Container(
@@ -46,16 +52,18 @@ class MainLayout extends StatelessWidget {
                 child: customAppBar,
               ),
               body: Padding(
-                padding: EdgeInsets.only(bottom: tracklist.isNotEmpty ? 100.0 : 50.0),
+                padding: EdgeInsets.only(bottom: vm.playingTrackList.isNotEmpty ? 100.0 : 50.0),
                 child: body,
               ),
               resizeToAvoidBottomInset: false,
             ),
-            if(tracklist.isNotEmpty) PlayerWidget(trackList: tracklist),
+            if(vm.playingTrackList.isNotEmpty) PlayerWidget(trackList: vm.playingTrackList),
             if (isBottomBar) CustomBottomBar(),
           ],
         ),
       ),
     );
+  },
+);
   }
 }

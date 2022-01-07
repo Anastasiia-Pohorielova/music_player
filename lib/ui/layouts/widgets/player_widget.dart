@@ -68,7 +68,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
     return audioPlayer.getCurrentAudioImage == null
         ? Center(
             child: CircularProgressIndicator(
-              color: AppColors.greyDark,
+              color: AppColors.white,
             ),
           )
         : GestureDetector(
