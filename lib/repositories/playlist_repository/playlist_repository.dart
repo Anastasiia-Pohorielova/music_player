@@ -1,6 +1,6 @@
 import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
 import 'package:music_player/services/playlist_service/playlist_service.dart';
-import 'package:music_player/store/playlist/playlist_actions/add_to_playlist_action.dart';
+import 'package:music_player/store/player_store/add_to_playlist_action.dart';
 import 'package:music_player/store/playlist/playlist_actions/delete_from_playlist_action.dart';
 import 'package:music_player/store/playlist/playlist_actions/get_palylist_action.dart';
 

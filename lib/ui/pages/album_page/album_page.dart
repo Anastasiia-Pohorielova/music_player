@@ -24,12 +24,19 @@ class _AlbumPageState extends State<AlbumPage> {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, AlbumPageVM>(
-      onInitialBuild: (AlbumPageVM vm) { vm.getTrackList(widget.index); },
+      onInitialBuild: (AlbumPageVM vm) {
+        vm.getTrackList(widget.index);
+      },
       converter: AlbumPageVM.fromStore,
       builder: (BuildContext context, AlbumPageVM vm) {
         return PlaylistPageLayout(
+          isPlaying: vm.isPlaying,
+          startPlaying: () {
+            vm.startPlaying();
+            },
+          stopPlaying: vm.stopPlaying,
           goToTrackPage: vm.goToTrackPage,
-          trackList: vm.trackList,
+          trackList: vm.playingTrackList,
           cover: widget.album.cover,
           artist: widget.album.artist.name,
           playlistTitle: widget.album.title,

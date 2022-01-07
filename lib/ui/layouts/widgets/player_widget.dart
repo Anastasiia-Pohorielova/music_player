@@ -20,7 +20,6 @@ class PlayerWidget extends StatefulWidget {
 
 class _PlayerWidgetState extends State<PlayerWidget> {
   AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
-  final List<StreamSubscription> _subscriptions = [];
   bool isPlaying = false;
   double currentPosition = 10.0;
 
@@ -72,78 +71,74 @@ class _PlayerWidgetState extends State<PlayerWidget> {
               color: AppColors.greyDark,
             ),
           )
-        : Positioned(
-      right: currentPosition,
-          bottom: 50.0,
-          child: GestureDetector(
-            onTap: () {
-              setState(() {
-                currentPosition = 10.0;
-              }); },
-            onHorizontalDragUpdate: (position) {
-              setState(() {
-                  currentPosition -= position.delta.dx;
-                  if(currentPosition > 150.0) {
-                    dispose();
-                    setState(() {
-
-                    });
-                  }
-              });
-            },
-            child: Container(
-                height: 60.0,
-                width: MediaQuery.of(context).size.width-40.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: AppColors.greyDark.withOpacity(0.9),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 10.0, right: 15.0),
-                      height: 50.0,
-                      width: 50.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        image: DecorationImage(image: NetworkImage(audioPlayer.getCurrentAudioImage!.path)),
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            audioPlayer.getCurrentAudioTitle,
-                            style: AppTextStyles.s18fw500White,
-                          ),
-                          Text(
-                            audioPlayer.getCurrentAudioArtist,
-                            style: AppTextStyles.s14fw500White,
-                          ),
-                        ],
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {setState(() {
-                        audioPlayer.isPlaying.valueWrapper!.value == true ? audioPlayer.pause() : audioPlayer.play();
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 10.0),
-                        child: Icon(
-                          audioPlayer.isPlaying.valueWrapper!.value == true ? Icons.pause : Icons.play_arrow,
-                          color: AppColors.white,
-                          size: 40.0,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+        : GestureDetector(
+          onTap: () {
+            setState(() {
+              currentPosition = 10.0;
+            }); },
+          onHorizontalDragUpdate: (position) {
+            setState(() {
+                currentPosition -= position.delta.dx;
+                if(currentPosition > 150.0) {
+                  setState(() {
+                    audioPlayer.stop();
+                  });
+                }
+            });
+          },
+          child: Container(
+              height: 60.0,
+              margin: const EdgeInsets.only(bottom: 50.0),
+              width: MediaQuery.of(context).size.width-40.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: AppColors.greyDark.withOpacity(0.9),
               ),
-          ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 10.0, right: 15.0),
+                    height: 50.0,
+                    width: 50.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      image: DecorationImage(image: NetworkImage(audioPlayer.getCurrentAudioImage!.path)),
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          audioPlayer.getCurrentAudioTitle,
+                          style: AppTextStyles.s18fw500White,
+                        ),
+                        Text(
+                          audioPlayer.getCurrentAudioArtist,
+                          style: AppTextStyles.s14fw500White,
+                        ),
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {setState(() {
+                      audioPlayer.isPlaying.valueWrapper!.value == true ? audioPlayer.pause() : audioPlayer.play();
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: Icon(
+                        audioPlayer.isPlaying.valueWrapper!.value == true ? Icons.pause : Icons.play_arrow,
+                        color: AppColors.white,
+                        size: 40.0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
         );
   }
 }

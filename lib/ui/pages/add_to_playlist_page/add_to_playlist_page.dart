@@ -64,6 +64,7 @@ class _AddToPlaylistPageState extends State<AddToPlaylistPage> {
                       return InkWell(
                         onTap: () {
                           vm.addTrack(widget.newTrack, vm.playlist[index].title);
+                          vm.pop();
                         },
                         child: Row(
                           children: [

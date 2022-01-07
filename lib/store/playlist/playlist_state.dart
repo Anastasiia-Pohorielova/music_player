@@ -2,16 +2,20 @@ import 'dart:collection';
 import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
 import 'package:music_player/models/playlist_model.dart';
 import 'package:music_player/models/track_model.dart';
-import 'package:music_player/store/playlist/playlist_actions/add_to_playlist_action.dart';
+import 'package:music_player/store/player_store/add_to_playlist_action.dart';
 import 'package:music_player/store/playlist/playlist_actions/create_new_playlist_action.dart';
 import 'package:music_player/store/playlist/playlist_actions/delete_from_playlist_action.dart';
+import 'package:music_player/store/player_store/start_playing_action.dart';
 import 'package:music_player/store/shared/reducer.dart';
 
 class PlaylistState {
   final List<TrackModel> tracklist;
   final List<PlaylistModel> playlists;
 
-  const PlaylistState({required this.playlists, required this.tracklist,});
+  const PlaylistState({
+    required this.playlists,
+    required this.tracklist,
+  });
 
   factory PlaylistState.initial() {
     return PlaylistState(
@@ -20,17 +24,20 @@ class PlaylistState {
     );
   }
 
-  PlaylistState copyWith({List<PlaylistModel>? playlists, List<TrackModel>? tracklist,}) {
-    return PlaylistState(playlists: playlists ?? this.playlists, tracklist: tracklist ?? this.tracklist,);
+  PlaylistState copyWith({List<PlaylistModel>? playlists, List<TrackModel>? tracklist}) {
+    return PlaylistState(
+      playlists: playlists ?? this.playlists,
+      tracklist: tracklist ?? this.tracklist,
+    );
   }
 
   PlaylistState reducer(dynamic action) {
     return Reducer<PlaylistState>(
         actions: HashMap.from({
-          AddToPlaylistAction: (dynamic action) => _addTrackToPlayList(action),
-          CreateNewPlaylistAction: (dynamic action) => _createNewPlayList(action),
-          DeleteFromPlaylistAction: (dynamic action) => _deleteTrackFromPlayList(action),
-        })).updateState(action, this);
+      AddToPlaylistAction: (dynamic action) => _addTrackToPlayList(action),
+      CreateNewPlaylistAction: (dynamic action) => _createNewPlayList(action),
+      DeleteFromPlaylistAction: (dynamic action) => _deleteTrackFromPlayList(action),
+    })).updateState(action, this);
   }
 
   PlaylistState _addTrackToPlayList(AddToPlaylistAction action) {
@@ -45,7 +52,7 @@ class PlaylistState {
   }
 
   PlaylistState _deleteTrackFromPlayList(DeleteFromPlaylistAction action) {
-    for(var item in playlists) {
+    for (var item in playlists) {
       item.tracks.removeWhere((element) => element.trackDto.id == action.trackId);
     }
     return copyWith(playlists: playlists);

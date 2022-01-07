@@ -8,16 +8,19 @@ import 'package:redux/redux.dart';
 class  HomePageVM {
   final List<PlaylistModel> playlist;
   final void Function(IPageData) goToPlaylistPage;
+  final bool isPlaying;
 
   HomePageVM({
     required this.playlist,
     required this.goToPlaylistPage,
+    required this.isPlaying,
   });
 
   static HomePageVM fromStore(Store<AppState> store) {
     return HomePageVM(
       playlist:  PlaylistSelectors.getPlaylist(store),
       goToPlaylistPage: RouteSelectors.goToPlaylistPage(store),
+      isPlaying: PlaylistSelectors.isPlaying(store),
     );
   }
 }

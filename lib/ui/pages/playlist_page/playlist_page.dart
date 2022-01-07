@@ -25,10 +25,15 @@ class _PlaylistPageState extends State<PlaylistPage> {
         converter: PlaylistPageVM.fromStore,
         builder: (BuildContext context, PlaylistPageVM vm) {
           return PlaylistPageLayout(
+            isPlaying: vm.isPlaying,
+            startPlaying: () {
+              vm.getPlayingTracklist(vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks);
+              vm.startPlaying(); },
+            stopPlaying: vm.stopPlaying,
             cover: vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks.first.coverUrl,
             artist: vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks.first.albumName,
             playlistTitle: widget.playlistTitle,
-            trackList: vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks,
+            trackList: vm.playingPlaylist,
             goToTrackPage: vm.goToTrackPage,
           );
         });

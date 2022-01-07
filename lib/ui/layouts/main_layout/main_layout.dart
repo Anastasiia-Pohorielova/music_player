@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player/models/track_model.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_gradient.dart';
 import 'package:music_player/ui/layouts/widgets/player_widget.dart';
@@ -9,14 +10,14 @@ class MainLayout extends StatelessWidget {
   final Widget body;
   final bool isBottomBar;
   final bool isPadding;
-  final PlayerWidget? playerWidget;
+  final List<TrackModel> tracklist;
 
   const MainLayout({
     required this.body,
     this.isBottomBar = true,
     this.isPadding = true,
     this.customAppBar = const SizedBox(),
-    this.playerWidget,
+    this.tracklist = const [],
     Key? key,
   }) : super(key: key);
 
@@ -28,7 +29,7 @@ class MainLayout extends StatelessWidget {
         decoration: BoxDecoration(gradient: isPadding ? AppGradient.albumGradient : null),
         padding: isPadding
             ? EdgeInsets.only(
-                top: MediaQuery.of(context).padding.top * 2,
+                top: MediaQuery.of(context).padding.top,
                 left: 10.0,
                 right: 10.0,
               )
@@ -45,12 +46,12 @@ class MainLayout extends StatelessWidget {
                 child: customAppBar,
               ),
               body: Padding(
-                padding: EdgeInsets.only(bottom: playerWidget != null ? 100.0 : 50.0),
+                padding: EdgeInsets.only(bottom: tracklist.isNotEmpty ? 100.0 : 50.0),
                 child: body,
               ),
               resizeToAvoidBottomInset: false,
             ),
-            playerWidget ?? const SizedBox(),
+            if(tracklist.isNotEmpty) PlayerWidget(trackList: tracklist),
             if (isBottomBar) CustomBottomBar(),
           ],
         ),

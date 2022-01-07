@@ -7,6 +7,7 @@ import 'package:music_player/store/album_store/album_actions/get_tracklist_actio
 import 'package:music_player/store/album_store/album_actions/save_albums_action.dart';
 import 'package:music_player/store/album_store/album_actions/save_tracklist_action.dart';
 import 'package:music_player/store/application/app_state.dart';
+import 'package:music_player/store/playlist/playlist_actions/add_playlist_to_listen_action.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -36,7 +37,10 @@ class AlbumEpics {
       for(TrackDto item in trackList) {
         trackModelList.add(TrackModel(trackDto: item, coverUrl: store.state.songState.albums[action.id].cover, albumName: store.state.songState.albums[action.id].title));
       }
+
       yield SaveTracklistAction(trackList: trackModelList);
+
+      yield AddPlaylistToListenAction(playlist: trackModelList);
     });
   }
 }

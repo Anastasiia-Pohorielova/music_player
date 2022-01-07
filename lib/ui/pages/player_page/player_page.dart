@@ -34,6 +34,7 @@ class _PlayerPageState extends State<PlayerPage> {
   double value = 0;
   bool openPage = false;
   bool isPaused = false;
+  bool result = false;
   int currentIndex = 0;
 
   @override
@@ -96,11 +97,12 @@ class _PlayerPageState extends State<PlayerPage> {
                             right: 20.0,
                             child: InkWell(
                               onTap: () {
-                                if (vm.playlist
-                                    .where((element) =>
-                                        element.tracks.where((element) => element.trackDto.id == vm.albumPlaylist[widget.id-1].trackDto.id).isNotEmpty)
-                                    .isNotEmpty) {
+                                for(var playlist in vm.playlist) {
+                                 result =  playlist.tracks.where((element) => element.trackDto.id == vm.albumPlaylist[currentIndex].trackDto.id).isNotEmpty;
+                                }
+                                if (result) {
                                   //  vm.deleteTrack(int.parse(widget.trackId));
+                                  print('i am here');
                                 } else {
                                   vm.goToAddToPlaylistPage(
                                     TrackModel(
@@ -111,8 +113,8 @@ class _PlayerPageState extends State<PlayerPage> {
                                         id: vm.albumPlaylist[currentIndex].trackDto.id,
                                         artist: vm.albumPlaylist[currentIndex].trackDto.artist,
                                       ),
-                                      albumName: widget.albumTitle,
-                                      coverUrl: widget.cover,
+                                      albumName: vm.albumPlaylist[currentIndex].albumName,
+                                      coverUrl: vm.albumPlaylist[currentIndex].coverUrl,
                                     ),
                                   );
                                 }

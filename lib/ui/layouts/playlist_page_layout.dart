@@ -16,6 +16,9 @@ class PlaylistPageLayout extends StatefulWidget {
   final String playlistTitle;
   final List<TrackModel> trackList;
   final Function(IPageData) goToTrackPage;
+  final bool isPlaying;
+  final void Function() startPlaying;
+  final void Function() stopPlaying;
 
   const PlaylistPageLayout({
     required this.cover,
@@ -23,6 +26,9 @@ class PlaylistPageLayout extends StatefulWidget {
     required this.playlistTitle,
     required this.trackList,
     required this.goToTrackPage,
+    required this.isPlaying,
+    required this.startPlaying,
+    required this.stopPlaying,
     Key? key,
   }) : super(key: key);
 
@@ -31,16 +37,28 @@ class PlaylistPageLayout extends StatefulWidget {
 }
 
 class _PlaylistPageLayoutState extends State<PlaylistPageLayout> {
-  bool isBottomPlayer = false;
-
   @override
   Widget build(BuildContext context) {
     return MainLayout(
-      playerWidget: isBottomPlayer ? PlayerWidget(trackList: widget.trackList) : null,
+      tracklist: widget.isPlaying ? widget.trackList : [],
       body: CustomScrollView(
         slivers: [
           SliverPersistentHeader(
             delegate: AlbumAppBar(
+              isPlaying: widget.isPlaying,
+              artist: widget.artist,
+              albumTitle: widget.playlistTitle,
+              onTap: () {
+                setState(() {
+                  if (widget.isPlaying == false) {
+                    widget.startPlaying();
+                    print(widget.isPlaying);
+                  } else {
+                   widget.stopPlaying();
+                   print(widget.isPlaying);
+                  }
+                });
+              },
               imageUrl: widget.cover,
               expandedHeight: 300.0,
             ),
@@ -49,106 +67,41 @@ class _PlaylistPageLayoutState extends State<PlaylistPageLayout> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (_, index) => ListTile(
-                title: index != 0
-                    ? InkWell(
-                        onTap: () => widget.goToTrackPage(
-                          PlayerPageData(
-                            id: index - 1,
-                            trackId: widget.trackList[index - 1].trackDto.id.toString(),
-                            cover: widget.cover,
-                            albumTitle: widget.playlistTitle,
-                            artistName: widget.artist,
+                title: InkWell(
+                  onTap: () => widget.goToTrackPage(
+                    PlayerPageData(
+                      id: index,
+                      trackId: widget.trackList[index].trackDto.id.toString(),
+                      cover: widget.cover,
+                      albumTitle: widget.playlistTitle,
+                      artistName: widget.artist,
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.trackList[index].trackDto.title,
+                            style: AppTextStyles.s14fw500White,
                           ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  widget.trackList[index - 1].trackDto.title,
-                                  style: AppTextStyles.s14fw500White,
-                                ),
-                                Text(
-                                  widget.artist,
-                                  style: AppTextStyles.s14fw500White,
-                                ),
-                              ],
-                            ),
-                            Icon(
-                              Icons.more_vert,
-                              color: AppColors.white,
-                            ),
-                          ],
-                        ),
-                      )
-                    : Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 30.0,),
-                        child: Stack(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  widget.playlistTitle,
-                                  style: AppTextStyles.s24fw700White,
-                                ),
-                                Text(
-                                  widget.artist,
-                                  style: AppTextStyles.s14fw500White,
-                                ),
-                                Text(
-                                  widget.playlistTitle,
-                                  style: AppTextStyles.s12fw400GreyLight,
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 20.0),
-                                      child: Icon(
-                                        Icons.favorite,
-                                        color: AppColors.white,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 20.0),
-                                      child: Icon(
-                                        Icons.arrow_circle_down_outlined,
-                                        color: AppColors.white,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 20.0),
-                                      child: Icon(
-                                        Icons.more_vert,
-                                        color: AppColors.white,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                            Positioned(
-                              left: MediaQuery.of(context).size.width - 100.0,
-                              child: InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    isBottomPlayer = true;
-                                  });
-                                },
-                                child: Icon(
-                                  Icons.play_circle_filled,
-                                  size: 50.0,
-                                  color: AppColors.green,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
+                          Text(
+                            widget.artist,
+                            style: AppTextStyles.s14fw500White,
+                          ),
+                        ],
                       ),
+                      Icon(
+                        Icons.more_vert,
+                        color: AppColors.white,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              childCount: widget.trackList.length + 1,
+              childCount: widget.trackList.length,
             ),
           )
         ],

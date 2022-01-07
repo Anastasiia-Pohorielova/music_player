@@ -1,0 +1,3 @@
+class StopPlayingAction {
+  StopPlayingAction();
+}

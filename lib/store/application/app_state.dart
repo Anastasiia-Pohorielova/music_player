@@ -4,6 +4,7 @@ import 'package:music_player/store/authentication/authentication_epics.dart';
 import 'package:music_player/store/authentication/authentication_state.dart';
 import 'package:music_player/store/loader/loader_reducer.dart';
 import 'package:music_player/store/loader/loader_state.dart';
+import 'package:music_player/store/player_store/player_state.dart';
 import 'package:music_player/store/playlist/playlist_epics.dart';
 import 'package:music_player/store/playlist/playlist_state.dart';
 import 'package:redux_epics/redux_epics.dart';
@@ -13,12 +14,14 @@ class AppState {
   final PlaylistState playlistState;
   final AuthState authState;
   final LoaderState loaderState;
+  final PlayerState playerState;
 
   const AppState({
     required this.songState,
     required this.playlistState,
     required this.authState,
     required this.loaderState,
+    required this.playerState,
   });
 
   factory AppState.initial() {
@@ -27,6 +30,7 @@ class AppState {
       playlistState: PlaylistState.initial(),
       authState: AuthState.initial(),
       loaderState: LoaderState.initial(),
+      playerState: PlayerState.initial(),
     );
   }
 
@@ -36,6 +40,7 @@ class AppState {
       playlistState: state.playlistState.reducer(action),
       authState: state.authState.reducer(action),
       loaderState: loaderReducer(state.loaderState, action),
+      playerState: state.playerState.reducer(action),
     );
   }
 

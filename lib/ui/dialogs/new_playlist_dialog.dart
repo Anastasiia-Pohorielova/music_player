@@ -40,13 +40,13 @@ class NewPlaylistDialog implements IDialog {
                       InkWell(
                         onTap: () {
                           vm.createPlaylist(textEditingController.text);
-                          vm.pop;
+                          DialogService.instance.close();
                         },
                         child: Text('Create', style: AppTextStyles.s18fw500White,),
                       ),
                       InkWell(
                         onTap: () {
-                          vm.pop;
+                          DialogService.instance.close();
                         },
                         child: Text('Cancel', style: AppTextStyles.s18fw500White,),
                       ),
