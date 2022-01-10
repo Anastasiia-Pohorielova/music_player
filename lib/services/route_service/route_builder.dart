@@ -1,4 +1,3 @@
-import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
 import 'package:music_player/models/pages/album_page_data.dart';
 import 'package:music_player/models/track_model.dart';
 import 'package:music_player/services/route_service/res/routes.dart';
@@ -8,7 +7,6 @@ import 'package:music_player/ui/pages/auth_page/login_page.dart';
 import 'package:music_player/ui/pages/auth_page/auth_page.dart';
 import 'package:music_player/ui/pages/auth_page/register_page.dart';
 import 'package:music_player/ui/pages/home_page/home_page.dart';
-import 'package:music_player/ui/pages/main_page/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player/ui/pages/player_page/player_page.dart';
 import 'package:music_player/ui/pages/playlist_page/playlist_page.dart';

@@ -17,6 +17,7 @@ class PlaylistPageLayout extends StatefulWidget {
   final List<TrackModel> trackList;
   final Function(IPageData) goToTrackPage;
   final bool isPlaying;
+  final void Function() openPlayer;
   final void Function() startPlaying;
   final void Function() stopPlaying;
 
@@ -29,6 +30,7 @@ class PlaylistPageLayout extends StatefulWidget {
     required this.isPlaying,
     required this.startPlaying,
     required this.stopPlaying,
+    required this.openPlayer,
     Key? key,
   }) : super(key: key);
 
@@ -51,11 +53,9 @@ class _PlaylistPageLayoutState extends State<PlaylistPageLayout> {
               onTap: () {
                 setState(() {
                   if (widget.isPlaying == false) {
-                    widget.startPlaying();
-                    print(widget.isPlaying);
+                    widget.openPlayer();
                   } else {
                    widget.stopPlaying();
-                   print(widget.isPlaying);
                   }
                 });
               },

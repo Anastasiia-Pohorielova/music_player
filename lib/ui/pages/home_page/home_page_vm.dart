@@ -1,6 +1,7 @@
 import 'package:music_player/models/pages/interfaces/i_page_data.dart';
 import 'package:music_player/models/playlist_model.dart';
 import 'package:music_player/store/application/app_state.dart';
+import 'package:music_player/store/player_store/player_selectors.dart';
 import 'package:music_player/store/playlist/playlist_selectors.dart';
 import 'package:music_player/store/shared/route_navigator/route_selectors.dart';
 import 'package:redux/redux.dart';
@@ -20,7 +21,7 @@ class  HomePageVM {
     return HomePageVM(
       playlist:  PlaylistSelectors.getPlaylist(store),
       goToPlaylistPage: RouteSelectors.goToPlaylistPage(store),
-      isPlaying: PlaylistSelectors.isPlaying(store),
+      isPlaying: PlayerSelectors.isPlaying(store),
     );
   }
 }

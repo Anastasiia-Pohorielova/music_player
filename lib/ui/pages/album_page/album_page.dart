@@ -30,6 +30,7 @@ class _AlbumPageState extends State<AlbumPage> {
       converter: AlbumPageVM.fromStore,
       builder: (BuildContext context, AlbumPageVM vm) {
         return PlaylistPageLayout(
+          openPlayer: vm.openPlayer,
           isPlaying: vm.isPlaying,
           startPlaying: () {
             vm.startPlaying();

@@ -1,5 +1,4 @@
 import 'package:music_player/res/app_styles/app_colors.dart';
-import 'package:music_player/res/app_styles/app_shadows.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

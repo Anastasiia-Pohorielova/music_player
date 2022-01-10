@@ -1,7 +1,9 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:music_player/models/pages/interfaces/i_page_data.dart';
 import 'package:music_player/models/track_model.dart';
 import 'package:music_player/store/album_store/album_selectors.dart';
 import 'package:music_player/store/application/app_state.dart';
+import 'package:music_player/store/player_store/player_selectors.dart';
 import 'package:music_player/store/playlist/playlist_selectors.dart';
 import 'package:music_player/store/shared/route_navigator/route_selectors.dart';
 import 'package:redux/redux.dart';
@@ -16,6 +18,8 @@ class AlbumPageVM {
   final bool isPlaying;
   final void Function(List<TrackModel>) savePlayingTracklist;
   final List<TrackModel> playingTrackList;
+  final void Function() openPlayer;
+  final AssetsAudioPlayer audioPlayer;
 
   AlbumPageVM({
     required this.trackList,
@@ -27,6 +31,8 @@ class AlbumPageVM {
     required this.isPlaying,
     required this.savePlayingTracklist,
     required this.playingTrackList,
+    required this.openPlayer,
+    required this.audioPlayer,
   });
 
   static AlbumPageVM fromStore(Store<AppState> store) {
@@ -35,11 +41,13 @@ class AlbumPageVM {
       getTrackList: AlbumSelectors.getTrackListFromApi(store),
       pop: RouteSelectors.doPop(store),
       goToTrackPage: RouteSelectors.goToTrackPage(store),
-      startPlaying: PlaylistSelectors.startPlaying(store),
-      stopPlaying: PlaylistSelectors.stopPlaying(store),
-      isPlaying: PlaylistSelectors.isPlaying(store),
+      startPlaying: PlayerSelectors.startPlaying(store),
+      stopPlaying: PlayerSelectors.stopPlaying(store),
+      isPlaying: PlayerSelectors.isPlaying(store),
       savePlayingTracklist: PlaylistSelectors.addPlaylistToListen(store),
-      playingTrackList: PlaylistSelectors.getPlayingPlaylist(store),
+      playingTrackList: PlayerSelectors.getPlayingPlaylist(store),
+      openPlayer: PlayerSelectors.openPlayer(store),
+      audioPlayer: PlayerSelectors.audioPlayer(store),
     );
   }
 }

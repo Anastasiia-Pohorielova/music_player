@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:music_player/res/const.dart';
 import 'package:music_player/services/network_service/interfaces/i_base_error.dart';
 import 'package:music_player/services/network_service/interfaces/i_base_http_error.dart';
 import 'package:music_player/services/network_service/interfaces/i_base_request.dart';

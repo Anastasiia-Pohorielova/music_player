@@ -1,7 +1,6 @@
+import 'package:music_player/store/loader/loader_actions.dart';
+import 'package:music_player/store/loader/loader_state.dart';
 import 'package:redux/redux.dart';
-
-import 'loader_actions.dart';
-import 'loader_state.dart';
 
 final loaderReducer = combineReducers<LoaderState>([
   TypedReducer<LoaderState, StartLoadingAction>(_startLoading),

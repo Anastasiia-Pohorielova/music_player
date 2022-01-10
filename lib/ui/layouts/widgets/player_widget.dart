@@ -7,10 +7,10 @@ import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
 
 class PlayerWidget extends StatefulWidget {
-  final List<TrackModel> trackList;
+  final AssetsAudioPlayer audioPlayer;
 
   const PlayerWidget({
-    required this.trackList,
+    required this.audioPlayer,
     Key? key,
   }) : super(key: key);
 
@@ -19,53 +19,24 @@ class PlayerWidget extends StatefulWidget {
 }
 
 class _PlayerWidgetState extends State<PlayerWidget> {
-  AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
-  bool isPlaying = false;
   double currentPosition = 10.0;
 
   @override
   void initState() {
-    playAudioNetwork(widget.trackList, 0);
-    audioPlayer.onReadyToPlay.listen((event) {
+    widget.audioPlayer.onReadyToPlay.listen((event) {
       setState(() {});
     });
-
     super.initState();
   }
-
-  @override
+   @override
   void dispose() {
-    audioPlayer.stop();
-    audioPlayer.dispose();
+    widget.audioPlayer.dispose();
     super.dispose();
-  }
-
-  Future<void> playAudioNetwork(List<TrackModel> songUrl, int startIndex) async {
-    await audioPlayer.open(
-      Playlist(
-        audios: List.generate(songUrl.length, (index) {
-          print(songUrl[index].coverUrl);
-          return Audio.network(
-            songUrl[index].trackDto.preview,
-            metas: Metas(
-              id: songUrl[index].trackDto.id.toString(),
-              title: songUrl[index].trackDto.title,
-              album: songUrl[index].albumName,
-              image: MetasImage.network(songUrl[index].coverUrl),
-              artist: songUrl[index].trackDto.artist.name,
-            ),
-          );
-        }),
-        startIndex: startIndex,
-      ),
-      autoStart: true,
-    );
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return audioPlayer.getCurrentAudioImage == null
+    return widget.audioPlayer.getCurrentAudioImage == null
         ? Center(
             child: CircularProgressIndicator(
               color: AppColors.white,
@@ -81,7 +52,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                 currentPosition -= position.delta.dx;
                 if(currentPosition > 150.0) {
                   setState(() {
-                    audioPlayer.stop();
+                    widget.audioPlayer.stop();
                   });
                 }
             });
@@ -103,7 +74,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                     width: 50.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
-                      image: DecorationImage(image: NetworkImage(audioPlayer.getCurrentAudioImage!.path)),
+                      image: DecorationImage(image: NetworkImage(widget.audioPlayer.getCurrentAudioImage!.path)),
                     ),
                   ),
                   Expanded(
@@ -112,25 +83,26 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          audioPlayer.getCurrentAudioTitle,
+                          widget.audioPlayer.getCurrentAudioTitle,
                           style: AppTextStyles.s18fw500White,
                         ),
                         Text(
-                          audioPlayer.getCurrentAudioArtist,
+                          widget.audioPlayer.getCurrentAudioArtist,
                           style: AppTextStyles.s14fw500White,
                         ),
                       ],
                     ),
                   ),
                   InkWell(
-                    onTap: () {setState(() {
-                      audioPlayer.isPlaying.valueWrapper!.value == true ? audioPlayer.pause() : audioPlayer.play();
+                    onTap: () {
+                      setState(() {
+                        widget.audioPlayer.isPlaying.valueWrapper!.value == true ? widget.audioPlayer.pause() : widget.audioPlayer.play();
                       });
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10.0),
                       child: Icon(
-                        audioPlayer.isPlaying.valueWrapper!.value == true ? Icons.pause : Icons.play_arrow,
+                        widget.audioPlayer.isPlaying.valueWrapper!.value == true ? Icons.pause : Icons.play_arrow,
                         color: AppColors.white,
                         size: 40.0,
                       ),

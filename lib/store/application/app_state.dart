@@ -48,5 +48,6 @@ class AppState {
     AlbumEpics.indexEpic,
     //PlaylistEpics.indexEpic,
     AuthenticationEpics.indexEpic,
+    PlaylistEpics.indexEpic,
   ]);
 }

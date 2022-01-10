@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux_navigation/flutter_redux_navigation.dart';
 import 'package:logging/logging.dart';
 
-import 'interfaces/i_dialog.dart';
+import 'package:music_player/services/dialog_service/interfaces/i_dialog.dart';
 
 export './dialog_service.dart';
 export './interfaces/i_dialog.dart';

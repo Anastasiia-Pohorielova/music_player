@@ -4,8 +4,8 @@ import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/shared/loader_dialog.dart';
 import 'package:redux/redux.dart';
 
-import 'loader_actions.dart';
-import 'loader_state.dart';
+import 'package:music_player/store/loader/loader_actions.dart';
+import 'package:music_player/store/loader/loader_state.dart';
 
 class LoaderSelectors {
   static List<ILoader>? getLoaders(Store<AppState> store) {

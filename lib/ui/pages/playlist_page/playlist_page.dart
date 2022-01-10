@@ -25,6 +25,7 @@ class _PlaylistPageState extends State<PlaylistPage> {
         converter: PlaylistPageVM.fromStore,
         builder: (BuildContext context, PlaylistPageVM vm) {
           return PlaylistPageLayout(
+            openPlayer: vm.openPlayer,
             isPlaying: vm.isPlaying,
             startPlaying: () {
               vm.getPlayingTracklist(vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks);

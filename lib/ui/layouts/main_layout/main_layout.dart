@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:music_player/models/track_model.dart';
@@ -8,7 +9,7 @@ import 'package:music_player/ui/layouts/widgets/player_widget.dart';
 import 'package:music_player/ui/pages/album_page/album_page_vm.dart';
 import 'package:music_player/ui/pages/shared/custom_bottom_bar/custom_bottom_bar.dart';
 
-class MainLayout extends StatelessWidget {
+class MainLayout extends StatefulWidget {
   final Widget customAppBar;
   final Widget body;
   final bool isBottomBar;
@@ -25,15 +26,23 @@ class MainLayout extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _MainLayoutState createState() => _MainLayoutState();
+}
+
+class _MainLayoutState extends State<MainLayout> {
+
+
+  @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, AlbumPageVM>(
       converter: AlbumPageVM.fromStore,
       builder: (BuildContext context, AlbumPageVM vm) {
+        print('hello main');
     return Material(
       color: AppColors.transparent,
       child: Container(
-        decoration: BoxDecoration(gradient: isPadding ? AppGradient.albumGradient : null),
-        padding: isPadding
+        decoration: BoxDecoration(gradient: widget.isPadding ? AppGradient.albumGradient : null),
+        padding: widget.isPadding
             ? EdgeInsets.only(
                 top: MediaQuery.of(context).padding.top,
                 left: 10.0,
@@ -49,16 +58,17 @@ class MainLayout extends StatelessWidget {
               backgroundColor: AppColors.transparent,
               appBar: PreferredSize(
                 preferredSize: Size(0.0, 30.0),
-                child: customAppBar,
+                child: widget.customAppBar,
               ),
+              bottomNavigationBar: vm.isPlaying ? PlayerWidget(audioPlayer: vm.audioPlayer,) : const SizedBox(),
               body: Padding(
-                padding: EdgeInsets.only(bottom: vm.playingTrackList.isNotEmpty ? 100.0 : 50.0),
-                child: body,
+                padding: EdgeInsets.only(bottom: vm.isPlaying ? 100.0 : 50.0),
+                child: widget.body,
               ),
               resizeToAvoidBottomInset: false,
             ),
-            if(vm.playingTrackList.isNotEmpty) PlayerWidget(trackList: vm.playingTrackList),
-            if (isBottomBar) CustomBottomBar(),
+         //   if(vm.isPlaying) PlayerWidget(trackList: vm.playingTrackList),
+            if (widget.isBottomBar) CustomBottomBar(),
           ],
         ),
       ),
