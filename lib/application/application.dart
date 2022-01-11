@@ -1,7 +1,8 @@
-
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_redux_navigation/flutter_redux_navigation.dart';
+import 'package:music_player/config/app_router.dart';
 import 'package:music_player/dictionary/flutter_delegate.dart';
 import 'package:music_player/dictionary/flutter_dictionary.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
@@ -22,12 +23,13 @@ class Application extends StatefulWidget {
 }
 
 class _ApplicationState extends State<Application> {
-  @override
-  void initState()  {
-    FlutterDictionary.instance.setNewLanguageAndSave(Locales.en);
-      super.initState();
-  }
+  final _appRouter = AppRouter();
 
+  @override
+  void initState() {
+    FlutterDictionary.instance.setNewLanguageAndSave(Locales.en);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +38,11 @@ class _ApplicationState extends State<Application> {
       child: StoreConnector<AppState, AppState>(
         converter: (Store<AppState> store) => store.state,
         builder: (BuildContext context, AppState state) {
-          return MaterialApp(
+          return MaterialApp.router(
             theme: ThemeData(
               accentColor: AppColors.white,
             ),
             debugShowCheckedModeBanner: false,
-            navigatorKey: NavigatorHolder.navigatorKey,
-            onGenerateRoute: RouteBuilder.onGenerateRoute,
-            home: EnterPage(),
             locale: Locale(Locales.base),
             supportedLocales: FlutterDictionaryDelegate.getSupportedLocales,
             builder: (BuildContext context, Widget? child) {
@@ -52,6 +51,8 @@ class _ApplicationState extends State<Application> {
                 child: child!,
               );
             },
+            routerDelegate: AutoRouterDelegate(_appRouter),
+            routeInformationParser: _appRouter,
           );
         },
       ),

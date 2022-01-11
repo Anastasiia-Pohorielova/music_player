@@ -25,6 +25,8 @@ dependencies:
   redux_epics: ^0.15.0
   flutter_redux: ^0.8.2
   flutter_redux_navigation: ^0.7.0
+  auto_route: 2.4.0
+  auto_route_generator: 2.4.0
 
     # FireBase
   firebase_core: 1.2.0
@@ -47,7 +49,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  analyzer: ^1.0.0
+  analyzer: ^2.3.0
   build_resolvers: ^2.0.4
   json_serializable: ^4.1.1
   build_runner: ^2.1.1
