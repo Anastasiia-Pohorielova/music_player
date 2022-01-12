@@ -1,16 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_redux_navigation/flutter_redux_navigation.dart';
-import 'package:music_player/config/app_router.dart';
+import 'package:music_player/config/app_router.gr.dart';
 import 'package:music_player/dictionary/flutter_delegate.dart';
 import 'package:music_player/dictionary/flutter_dictionary.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/const.dart';
 import 'package:music_player/res/locales.dart';
-import 'package:music_player/services/route_service/route_builder.dart';
 import 'package:music_player/store/application/app_state.dart';
-import 'package:music_player/ui/pages/auth_page/auth_page.dart';
 import 'package:redux/redux.dart';
 
 class Application extends StatefulWidget {
@@ -52,7 +49,7 @@ class _ApplicationState extends State<Application> {
               );
             },
             routerDelegate: AutoRouterDelegate(_appRouter),
-            routeInformationParser: _appRouter,
+            routeInformationParser: _appRouter.defaultRouteParser(),
           );
         },
       ),

@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_shadows.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
-import 'package:music_player/services/dialog_service/dialog_service.dart';
-import 'package:music_player/store/loader/loader_state.dart';
-import 'package:music_player/ui/shared/loader_dialog.dart';
 
 class AlbumAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;

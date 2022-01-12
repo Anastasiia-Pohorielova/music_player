@@ -28,7 +28,7 @@ class NewPlaylistDialog implements IDialog {
                       style: AppTextStyles.s14fw500White,
                       decoration: InputDecoration(
                         focusedBorder: const UnderlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.white, width: 1.0),
+                          borderSide: BorderSide(color: AppColors.white),
                         ),
                       ),
                     ),

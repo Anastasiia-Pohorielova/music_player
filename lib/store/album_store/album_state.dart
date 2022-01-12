@@ -2,10 +2,9 @@ import 'dart:collection';
 
 import 'package:music_player/models/dto/album_dto.dart';
 import 'package:music_player/models/track_model.dart';
+import 'package:music_player/store/album_store/album_actions/save_albums_action.dart';
+import 'package:music_player/store/album_store/album_actions/save_tracklist_action.dart';
 import 'package:music_player/store/shared/reducer.dart';
-
-import 'album_actions/save_albums_action.dart';
-import 'album_actions/save_tracklist_action.dart';
 
 class AlbumState {
   final List<AlbumDto> albums;

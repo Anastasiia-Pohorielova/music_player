@@ -1,8 +1,6 @@
-import 'dart:async';
 
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player/models/track_model.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
 

@@ -9,7 +9,10 @@ import 'package:music_player/store/application/app_state.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
 
+import 'package:music_player/config/app_config.dart';
+
 Future<void> main() async {
+  configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(
@@ -24,8 +27,9 @@ Future<void> main() async {
     initialState: AppState.initial(),
     middleware: [
       EpicMiddleware(AppState.getAppEpic),
-      NavigationMiddleware<AppState>(),
+     // NavigationMiddleware<AppState>(),
     ],
   );
+ // configureDependencies();
   runApp(Application(store: store));
 }

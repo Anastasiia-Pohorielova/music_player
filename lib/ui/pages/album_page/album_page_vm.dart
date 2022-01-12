@@ -1,18 +1,14 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:music_player/models/pages/interfaces/i_page_data.dart';
 import 'package:music_player/models/track_model.dart';
 import 'package:music_player/store/album_store/album_selectors.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/store/player_store/player_selectors.dart';
 import 'package:music_player/store/playlist/playlist_selectors.dart';
-import 'package:music_player/store/shared/route_navigator/route_selectors.dart';
 import 'package:redux/redux.dart';
 
 class AlbumPageVM {
   final void Function(int) getTrackList;
   final List<TrackModel> trackList;
-  final void Function() pop;
-  final void Function(IPageData) goToTrackPage;
   final void Function() startPlaying;
   final void Function() stopPlaying;
   final bool isPlaying;
@@ -24,8 +20,6 @@ class AlbumPageVM {
   AlbumPageVM({
     required this.trackList,
     required this.getTrackList,
-    required this.pop,
-    required this.goToTrackPage,
     required this.startPlaying,
     required this.stopPlaying,
     required this.isPlaying,
@@ -39,8 +33,6 @@ class AlbumPageVM {
     return AlbumPageVM(
       trackList: AlbumSelectors.getTrackList(store),
       getTrackList: AlbumSelectors.getTrackListFromApi(store),
-      pop: RouteSelectors.doPop(store),
-      goToTrackPage: RouteSelectors.goToTrackPage(store),
       startPlaying: PlayerSelectors.startPlaying(store),
       stopPlaying: PlayerSelectors.stopPlaying(store),
       isPlaying: PlayerSelectors.isPlaying(store),

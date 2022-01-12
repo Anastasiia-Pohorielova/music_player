@@ -1,9 +1,8 @@
 
 
 import 'package:music_player/services/dialog_service/interfaces/i_loader.dart';
+import 'package:music_player/store/loader/loader_state.dart';
 import 'package:music_player/store/shared/base_action.dart';
-
-import 'loader_state.dart';
 
 class ShimmerLoadingAction extends BaseAction {
   final bool isLoading;

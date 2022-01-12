@@ -35,7 +35,6 @@ class _PlaylistPageState extends State<PlaylistPage> {
             artist: vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks.first.albumName,
             playlistTitle: widget.playlistTitle,
             trackList: vm.playingPlaylist,
-            goToTrackPage: vm.goToTrackPage,
           );
         });
   }

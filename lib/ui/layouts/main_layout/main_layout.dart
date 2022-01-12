@@ -1,4 +1,3 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:music_player/models/track_model.dart';

@@ -7,6 +7,7 @@ import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
 import 'package:music_player/ui/pages/auth_page/auth_page_vm.dart';
 import 'package:music_player/ui/pages/shared/custom_text_field.dart';
+import 'package:auto_route/auto_route.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class _AuthPageState extends State<AuthPage> {
           customAppBar: Container(
             alignment: Alignment.centerLeft,
             child: InkWell(
-              onTap: () => vm.pop(),
+              onTap: () => context.router.pop(),
               child: Icon(
                 Icons.arrow_back,
                 color: AppColors.white,

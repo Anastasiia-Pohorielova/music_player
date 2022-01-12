@@ -1,6 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:music_player/models/pages/album_page_data.dart';
+import 'package:music_player/config/app_router.gr.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
@@ -26,41 +27,47 @@ class _SearchPageState extends State<SearchPage> {
             action: (text) => vm.getAlbums(text),
           ),
           body: Container(
-            child: vm.albums.isNotEmpty ? ListView.builder(
-              itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () => vm.goToAlbumPage(
-                    AlbumPageData(
-                      album: vm.albums[index],
-                      index: index,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Image.network(vm.albums[index].cover, height: 100.0, width: 100.0,),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: Column(
+            child: vm.albums.isNotEmpty
+                ? ListView.builder(
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () => context.router.push(
+                          AlbumRoute(
+                            album: vm.albums[index],
+                            index: index,
+                          ),
+                        ),
+                        child: Row(
                           children: [
-                            Text(
-                              vm.albums[index].title,
-                              style: AppTextStyles.s14fw500White,
+                            Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Image.network(
+                                vm.albums[index].cover,
+                                height: 100.0,
+                                width: 100.0,
+                              ),
                             ),
-                            Text(
-                              vm.albums[index].artist.name,
-                              style: AppTextStyles.s12fw400GreyLight,
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15.0),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    vm.albums[index].title,
+                                    style: AppTextStyles.s14fw500White,
+                                  ),
+                                  Text(
+                                    vm.albums[index].artist.name,
+                                    style: AppTextStyles.s12fw400GreyLight,
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ) : const SizedBox(),
+                      );
+                    },
+                  )
+                : const SizedBox(),
           ),
         );
       },

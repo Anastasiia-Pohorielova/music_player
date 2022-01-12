@@ -9,6 +9,7 @@ import 'package:music_player/ui/dialogs/new_playlist_dialog.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
 import 'package:music_player/ui/pages/add_to_playlist_page/add_to_playlist_page_vm.dart';
 import 'package:music_player/ui/pages/shared/custom_button.dart';
+import 'package:auto_route/auto_route.dart';
 
 class AddToPlaylistPage extends StatefulWidget {
   final TrackModel newTrack;
@@ -33,7 +34,7 @@ class _AddToPlaylistPageState extends State<AddToPlaylistPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                onTap: () => vm.pop(),
+                onTap: () => context.router.pop(),
                 child: Icon(
                   Icons.arrow_back,
                   color: AppColors.white,
@@ -64,7 +65,7 @@ class _AddToPlaylistPageState extends State<AddToPlaylistPage> {
                       return InkWell(
                         onTap: () {
                           vm.addTrack(widget.newTrack, vm.playlist[index].title);
-                          vm.pop();
+                          context.router.pop();
                         },
                         child: Row(
                           children: [

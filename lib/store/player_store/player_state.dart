@@ -1,10 +1,10 @@
 import 'dart:collection';
+
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:music_player/models/track_model.dart';
+import 'package:music_player/store/player_store/start_playing_action.dart';
 import 'package:music_player/store/player_store/stop_playing_action.dart';
 import 'package:music_player/store/playlist/playlist_actions/add_playlist_to_listen_action.dart';
-import 'package:music_player/store/player_store/add_to_playlist_action.dart';
-import 'package:music_player/store/player_store/start_playing_action.dart';
 import 'package:music_player/store/shared/reducer.dart';
 
 class PlayerState {

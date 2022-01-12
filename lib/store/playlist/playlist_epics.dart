@@ -1,12 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
-import 'package:music_player/repositories/playlist_repository/playlist_repository.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/store/player_store/player_state.dart';
 import 'package:music_player/store/player_store/start_playing_action.dart';
-import 'package:music_player/store/playlist/playlist_actions/delete_from_playlist_action.dart';
-import 'package:music_player/store/playlist/playlist_actions/get_palylist_action.dart';
-import 'package:music_player/store/playlist/playlist_actions/save_playlist_action.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 

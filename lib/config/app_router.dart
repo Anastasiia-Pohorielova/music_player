@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:music_player/services/route_service/res/routes.dart';
+import 'package:injectable/injectable.dart';
+import 'package:music_player/res/routes.dart';
+import 'package:music_player/ui/pages/add_to_playlist_page/add_to_playlist_page.dart';
 import 'package:music_player/ui/pages/album_page/album_page.dart';
 import 'package:music_player/ui/pages/auth_page/auth_page.dart';
 import 'package:music_player/ui/pages/auth_page/login_page.dart';
@@ -9,6 +11,12 @@ import 'package:music_player/ui/pages/player_page/player_page.dart';
 import 'package:music_player/ui/pages/playlist_page/playlist_page.dart';
 import 'package:music_player/ui/pages/search_page/search_page.dart';
 
+import 'package:music_player/config/app_config.dart';
+export 'app_router.gr.dart';
+import 'package:music_player/config/app_router.gr.dart';
+
+AppRouter get router => getIt<AppRouter>();
+
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
@@ -16,44 +24,39 @@ import 'package:music_player/ui/pages/search_page/search_page.dart';
       path: Routes.enterPage,
       page: EnterPage,
       initial: true,
-      children: [
-        AutoRoute(path: Routes.registerPage, page: RegisterPage),
-        AutoRoute(path: Routes.loginPage, page: AuthPage),
-        RedirectRoute(path: '*', redirectTo: Routes.registerPage),
-      ],
     ),
+    AutoRoute(path: Routes.registerPage, page: RegisterPage,),
+    AutoRoute(path: Routes.loginPage, page: AuthPage,),
     AutoRoute(
       path: Routes.homePage,
       page: HomePage,
-      children: [
-        AutoRoute(
-          path: Routes.playlistPage,
-          page: PlaylistPage,
-          children: [
-            AutoRoute(
-              path: Routes.trackPage,
-              page: PlayerPage,
-            ),
-          ],
-        ),
-      ],
+    ),
+    AutoRoute(
+      path: Routes.playlistPage,
+      page: PlaylistPage,
+    ),
+    AutoRoute(
+      path: Routes.trackPage,
+      page: PlayerPage,
+    ),
+    AutoRoute(
+      path: Routes.addToPlaylistPage,
+      page: AddToPlaylistPage,
+    ),
+    AutoRoute(
+      path: Routes.trackPage,
+      page: PlayerPage,
+    ),
+    AutoRoute(
+      path: Routes.albumPage,
+      page: AlbumPage,
     ),
     AutoRoute(
       path: Routes.searchPage,
       page: SearchPage,
-      children: [
-        AutoRoute(
-          path: Routes.albumPage,
-          page: AlbumPage,
-          children: [
-            AutoRoute(
-              path: Routes.trackPage,
-              page: PlayerPage,
-            ),
-          ],
-        ),
-      ],
     ),
   ],
 )
+
+@injectable
 class $AppRouter {}

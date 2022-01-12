@@ -1,6 +1,5 @@
+import 'package:music_player/config/app_router.dart';
 import 'package:music_player/repositories/authentication_repository/authentication_repository.dart';
-import 'package:music_player/services/route_service/res/routes.dart';
-import 'package:music_player/services/route_service/route_manager.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/store/authentication/authentication_actions.dart';
 import 'package:music_player/store/loader/loader_actions.dart';
@@ -8,6 +7,7 @@ import 'package:music_player/store/loader/loader_state.dart';
 import 'package:music_player/ui/shared/loader_dialog.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:auto_route/auto_route.dart';
 
 class AuthenticationEpics {
   static final indexEpic = combineEpics<AppState>([
@@ -34,7 +34,7 @@ class AuthenticationEpics {
         token: token,
       );
       yield* Stream.value(StopLoadingAction(loaderKey: LoaderKey.global));
-      yield RouteManager.instance.replace(Routes.homePage);
+      yield router.navigatorKey.currentContext!.replaceRoute(HomeRoute());
     });
   }
 
@@ -47,7 +47,7 @@ class AuthenticationEpics {
       yield SaveUserAction(
         token: token,
       );
-      yield RouteManager.instance.replace(Routes.homePage);
+      yield router.navigatorKey.currentContext!.replaceRoute(HomeRoute());
     });
   }
 }

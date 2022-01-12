@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:music_player/config/app_router.gr.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_gradient.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
@@ -9,6 +10,7 @@ import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
 
 import 'package:music_player/ui/pages/auth_page/auth_page_vm.dart';
 import 'package:music_player/ui/pages/shared/custom_button.dart';
+import 'package:auto_route/auto_route.dart';
 
 class EnterPage extends StatefulWidget {
   const EnterPage({Key? key}) : super(key: key);
@@ -53,12 +55,12 @@ class _EnterPageState extends State<EnterPage> {
               ),
               Center(
                 child: CustomButton(
-                  onTap: vm.goToRegisterPage,
+                  onTap: () => context.router.push(RegisterRoute()),
                   title: 'Register',
                 ),
               ),
               InkWell(
-                onTap: () => vm.goToLoginPage(),
+                onTap: () => context.router.push(AuthRoute()),
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(

@@ -1,16 +1,13 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:music_player/models/pages/interfaces/i_page_data.dart';
 import 'package:music_player/models/playlist_model.dart';
 import 'package:music_player/models/track_model.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/store/player_store/player_selectors.dart';
 import 'package:music_player/store/playlist/playlist_selectors.dart';
-import 'package:music_player/store/shared/route_navigator/route_selectors.dart';
 import 'package:redux/redux.dart';
 
 class  PlaylistPageVM {
   final List<PlaylistModel> playlist;
-  final void Function(IPageData) goToTrackPage;
   final void Function() startPlaying;
   final void Function() stopPlaying;
   final bool isPlaying;
@@ -21,7 +18,6 @@ class  PlaylistPageVM {
 
   PlaylistPageVM({
     required this.playlist,
-    required this.goToTrackPage,
     required this.startPlaying,
     required this.stopPlaying,
     required this.isPlaying,
@@ -34,7 +30,6 @@ class  PlaylistPageVM {
   static PlaylistPageVM fromStore(Store<AppState> store) {
     return PlaylistPageVM(
       playlist:  PlaylistSelectors.getPlaylist(store),
-      goToTrackPage: RouteSelectors.goToTrackPage(store),
       startPlaying: PlayerSelectors.startPlaying(store),
       stopPlaying: PlayerSelectors.stopPlaying(store),
       isPlaying: PlayerSelectors.isPlaying(store),

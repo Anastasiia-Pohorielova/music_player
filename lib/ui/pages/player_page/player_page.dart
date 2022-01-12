@@ -1,6 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:music_player/config/app_router.gr.dart';
 import 'package:music_player/models/dto/tracklist_dto/track_dto.dart';
 import 'package:music_player/models/track_model.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
@@ -8,6 +9,7 @@ import 'package:music_player/res/app_styles/app_text_styles.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
 import 'package:music_player/ui/pages/player_page/player_page_vm.dart';
+import 'package:auto_route/auto_route.dart';
 
 class PlayerPage extends StatefulWidget {
   final int id;
@@ -84,7 +86,7 @@ class _PlayerPageState extends State<PlayerPage> {
                           Positioned(
                             top: 20.0,
                             child: InkWell(
-                              onTap: () => vm.pop(),
+                              onTap: () => context.router.pop(),
                               child: Icon(
                                 Icons.arrow_back,
                                 color: AppColors.white,
@@ -97,24 +99,28 @@ class _PlayerPageState extends State<PlayerPage> {
                             right: 20.0,
                             child: InkWell(
                               onTap: () {
-                                for(var playlist in vm.playlist) {
-                                 result =  playlist.tracks.where((element) => element.trackDto.id == vm.albumPlaylist[currentIndex].trackDto.id).isNotEmpty;
+                                for (var playlist in vm.playlist) {
+                                  result = playlist.tracks
+                                      .where((element) => element.trackDto.id == vm.albumPlaylist[currentIndex].trackDto.id)
+                                      .isNotEmpty;
                                 }
                                 if (result) {
                                   //  vm.deleteTrack(int.parse(widget.trackId));
                                   print('i am here');
                                 } else {
-                                  vm.goToAddToPlaylistPage(
-                                    TrackModel(
-                                      trackDto: TrackDto(
-                                        title: vm.albumPlaylist[currentIndex].trackDto.title,
-                                        duration: vm.albumPlaylist[currentIndex].trackDto.duration,
-                                        preview: vm.albumPlaylist[currentIndex].trackDto.preview,
-                                        id: vm.albumPlaylist[currentIndex].trackDto.id,
-                                        artist: vm.albumPlaylist[currentIndex].trackDto.artist,
+                                  context.router.push(
+                                    AddToPlaylistRoute(
+                                      newTrack: TrackModel(
+                                        trackDto: TrackDto(
+                                          title: vm.albumPlaylist[currentIndex].trackDto.title,
+                                          duration: vm.albumPlaylist[currentIndex].trackDto.duration,
+                                          preview: vm.albumPlaylist[currentIndex].trackDto.preview,
+                                          id: vm.albumPlaylist[currentIndex].trackDto.id,
+                                          artist: vm.albumPlaylist[currentIndex].trackDto.artist,
+                                        ),
+                                        albumName: vm.albumPlaylist[currentIndex].albumName,
+                                        coverUrl: vm.albumPlaylist[currentIndex].coverUrl,
                                       ),
-                                      albumName: vm.albumPlaylist[currentIndex].albumName,
-                                      coverUrl: vm.albumPlaylist[currentIndex].coverUrl,
                                     ),
                                   );
                                 }
@@ -199,7 +205,7 @@ class _PlayerPageState extends State<PlayerPage> {
                                       setState(() {
                                         audioPlayer.stop();
                                         audioPlayer.previous();
-                                        currentIndex -- ;
+                                        currentIndex--;
                                       });
                                     },
                                     child: const Icon(
@@ -230,7 +236,7 @@ class _PlayerPageState extends State<PlayerPage> {
                                     onTap: () {
                                       setState(() {
                                         audioPlayer.next();
-                                        currentIndex ++;
+                                        currentIndex++;
                                       });
                                     },
                                     child: Icon(

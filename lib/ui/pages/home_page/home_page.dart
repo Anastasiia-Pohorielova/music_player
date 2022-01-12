@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:music_player/models/pages/album_page_data.dart';
+import 'package:music_player/config/app_router.gr.dart';
 import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
 import 'package:music_player/res/image_assets.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
 import 'package:music_player/ui/pages/home_page/home_page_vm.dart';
+import 'package:auto_route/auto_route.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                     return Column(
                       children: [
                         InkWell(
-                          onTap: () => vm.goToPlaylistPage(PlaylistPageData(title: vm.playlist[index].title)),
+                          onTap: () => context.router.push(PlaylistRoute(playlistTitle: vm.playlist[index].title)),
                           child: Column(
                             children: [
                               Container(
