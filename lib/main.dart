@@ -30,6 +30,6 @@ Future<void> main() async {
      // NavigationMiddleware<AppState>(),
     ],
   );
- // configureDependencies();
+ //git  configureDependencies();
   runApp(Application(store: store));
 }
