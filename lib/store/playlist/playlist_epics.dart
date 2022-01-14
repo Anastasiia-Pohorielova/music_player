@@ -2,6 +2,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/store/player_store/player_state.dart';
 import 'package:music_player/store/player_store/start_playing_action.dart';
+import 'package:music_player/store/playlist/playlist_actions/add_playlist_to_listen_action.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -31,6 +32,7 @@ class PlaylistEpics {
           }),
           startIndex: 0,
         ),
+        loopMode: LoopMode.playlist,
         autoStart: false,
       );
       yield StartPlayingAction();

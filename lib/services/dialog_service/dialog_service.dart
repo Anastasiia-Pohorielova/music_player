@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux_navigation/flutter_redux_navigation.dart';
 import 'package:logging/logging.dart';
+import 'package:music_player/config/app_router.dart';
 
 import 'package:music_player/services/dialog_service/interfaces/i_dialog.dart';
 
@@ -43,8 +44,8 @@ class DialogService {
       return;
     }
 
-    if (NavigatorHolder.navigatorKey.currentState?.canPop() ?? false) {
-      NavigatorHolder.navigatorKey.currentState!.pop();
+    if (router.navigatorKey.currentState?.canPop() ?? false) {
+      router.navigatorKey.currentState!.pop();
       _isDisplayed = false;
     }
   }
@@ -62,7 +63,7 @@ class DialogService {
     _isDisplayed = true;
     logger.info('Is displayed $_isDisplayed');
 
-    final BuildContext? ctx = NavigatorHolder.navigatorKey.currentState?.overlay?.context;
+    final BuildContext? ctx = router.navigatorKey.currentState?.overlay?.context;
 
     await builder(ctx!).then((_) {
       FocusScope.of(ctx).unfocus();

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:music_player/config/app_router.dart';
 import 'package:music_player/config/app_router.gr.dart';
 import 'package:music_player/dictionary/flutter_delegate.dart';
 import 'package:music_player/dictionary/flutter_dictionary.dart';
@@ -20,7 +21,6 @@ class Application extends StatefulWidget {
 }
 
 class _ApplicationState extends State<Application> {
-  final _appRouter = AppRouter();
 
   @override
   void initState() {
@@ -48,8 +48,8 @@ class _ApplicationState extends State<Application> {
                 child: child!,
               );
             },
-            routerDelegate: AutoRouterDelegate(_appRouter),
-            routeInformationParser: _appRouter.defaultRouteParser(),
+            routerDelegate: router.delegate(),
+            routeInformationParser: router.defaultRouteParser(),
           );
         },
       ),

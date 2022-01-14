@@ -12,7 +12,6 @@ import 'package:redux_epics/redux_epics.dart';
 import 'package:music_player/config/app_config.dart';
 
 Future<void> main() async {
-  configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(
@@ -30,6 +29,6 @@ Future<void> main() async {
      // NavigationMiddleware<AppState>(),
     ],
   );
- // configureDependencies();
+  configureDependencies();
   runApp(Application(store: store));
 }

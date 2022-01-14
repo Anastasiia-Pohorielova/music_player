@@ -25,15 +25,14 @@ class _AlbumPageState extends State<AlbumPage> {
     return StoreConnector<AppState, AlbumPageVM>(
       onInitialBuild: (AlbumPageVM vm) {
         vm.getTrackList(widget.index);
+       vm.savePlayingTracklist(vm.playingTrackList);
       },
       converter: AlbumPageVM.fromStore,
       builder: (BuildContext context, AlbumPageVM vm) {
         return PlaylistPageLayout(
           openPlayer: vm.openPlayer,
           isPlaying: vm.isPlaying,
-          startPlaying: () {
-            vm.startPlaying();
-            },
+          startPlaying: () => vm.startPlaying(),
           stopPlaying: vm.stopPlaying,
           trackList: vm.playingTrackList,
           cover: widget.album.cover,

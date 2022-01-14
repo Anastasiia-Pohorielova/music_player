@@ -58,5 +58,4 @@ AppRouter get router => getIt<AppRouter>();
   ],
 )
 
-@injectable
 class $AppRouter {}

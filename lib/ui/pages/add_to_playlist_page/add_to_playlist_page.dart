@@ -64,6 +64,7 @@ class _AddToPlaylistPageState extends State<AddToPlaylistPage> {
                     itemBuilder: (BuildContext ctx, int index) {
                       return InkWell(
                         onTap: () {
+                          print(widget.newTrack.trackDto.title);
                           vm.addTrack(widget.newTrack, vm.playlist[index].title);
                           context.router.pop();
                         },

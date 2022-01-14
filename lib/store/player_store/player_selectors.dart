@@ -8,7 +8,7 @@ import 'package:redux/redux.dart';
 
 class PlayerSelectors {
 
-  static AssetsAudioPlayer audioPlayer(Store<AppState> store) {
+  static AssetsAudioPlayer? audioPlayer(Store<AppState> store) {
     return store.state.playerState.audioPlayer;
   }
 

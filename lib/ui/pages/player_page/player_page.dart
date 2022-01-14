@@ -1,4 +1,5 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:music_player/config/app_router.gr.dart';
@@ -9,7 +10,6 @@ import 'package:music_player/res/app_styles/app_text_styles.dart';
 import 'package:music_player/store/application/app_state.dart';
 import 'package:music_player/ui/layouts/main_layout/main_layout.dart';
 import 'package:music_player/ui/pages/player_page/player_page_vm.dart';
-import 'package:auto_route/auto_route.dart';
 
 class PlayerPage extends StatefulWidget {
   final int id;
@@ -35,18 +35,29 @@ class _PlayerPageState extends State<PlayerPage> {
   AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
   double value = 0;
   bool openPage = false;
-  bool isPaused = false;
   bool result = false;
-  int currentIndex = 0;
 
   @override
   void initState() {
-    currentIndex = widget.id;
+    print(widget.id);
     openPage = true;
+    audioPlayer.onReadyToPlay.listen((event) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {});
+    });
     super.initState();
   }
 
-  Future<void> playAudioNetwork(List<TrackModel> songUrl, int startIndex) async {
+  @override
+  void dispose() {
+    audioPlayer.stop();
+    audioPlayer.dispose();
+    super.dispose();
+  }
+
+  Future<void> playAudioNetwork(List<TrackModel> songUrl) async {
     await audioPlayer.open(
       Playlist(
         audios: List.generate(songUrl.length, (index) {
@@ -60,8 +71,9 @@ class _PlayerPageState extends State<PlayerPage> {
             ),
           );
         }),
-        startIndex: startIndex,
+        startIndex: widget.id,
       ),
+      loopMode: LoopMode.playlist,
       autoStart: false,
     );
     openPage = false;
@@ -73,7 +85,7 @@ class _PlayerPageState extends State<PlayerPage> {
     return StoreConnector<AppState, PlayerPageVM>(
         converter: PlayerPageVM.fromStore,
         onInitialBuild: (PlayerPageVM vm) {
-          playAudioNetwork(vm.albumPlaylist, widget.id);
+          playAudioNetwork(vm.playingTracklist);
         },
         builder: (BuildContext context, PlayerPageVM vm) {
           return MainLayout(
@@ -101,25 +113,27 @@ class _PlayerPageState extends State<PlayerPage> {
                               onTap: () {
                                 for (var playlist in vm.playlist) {
                                   result = playlist.tracks
-                                      .where((element) => element.trackDto.id == vm.albumPlaylist[currentIndex].trackDto.id)
+                                      .where((element) =>
+                                          element.trackDto.id == vm.albumPlaylist[audioPlayer.current.valueWrapper!.value!.index].trackDto.id)
                                       .isNotEmpty;
                                 }
                                 if (result) {
                                   //  vm.deleteTrack(int.parse(widget.trackId));
                                   print('i am here');
                                 } else {
+                                  print(vm.albumPlaylist[audioPlayer.current.valueWrapper!.value!.index].trackDto.title);
                                   context.router.push(
                                     AddToPlaylistRoute(
                                       newTrack: TrackModel(
                                         trackDto: TrackDto(
-                                          title: vm.albumPlaylist[currentIndex].trackDto.title,
-                                          duration: vm.albumPlaylist[currentIndex].trackDto.duration,
-                                          preview: vm.albumPlaylist[currentIndex].trackDto.preview,
-                                          id: vm.albumPlaylist[currentIndex].trackDto.id,
-                                          artist: vm.albumPlaylist[currentIndex].trackDto.artist,
+                                          title: vm.albumPlaylist[audioPlayer.current.valueWrapper!.value!.index].trackDto.title,
+                                          duration: vm.albumPlaylist[audioPlayer.current.valueWrapper!.value!.index].trackDto.duration,
+                                          preview: vm.albumPlaylist[audioPlayer.current.valueWrapper!.value!.index].trackDto.preview,
+                                          id: vm.albumPlaylist[audioPlayer.current.valueWrapper!.value!.index].trackDto.id,
+                                          artist: vm.albumPlaylist[audioPlayer.current.valueWrapper!.value!.index].trackDto.artist,
                                         ),
-                                        albumName: vm.albumPlaylist[currentIndex].albumName,
-                                        coverUrl: vm.albumPlaylist[currentIndex].coverUrl,
+                                        albumName: vm.albumPlaylist[audioPlayer.current.valueWrapper!.value!.index].albumName,
+                                        coverUrl: vm.albumPlaylist[audioPlayer.current.valueWrapper!.value!.index].coverUrl,
                                       ),
                                     ),
                                   );
@@ -195,18 +209,20 @@ class _PlayerPageState extends State<PlayerPage> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
-                                  Icon(
-                                    Icons.shuffle,
-                                    color: AppColors.greyLight,
-                                    size: 30.0,
+                                  InkWell(
+                                    onTap: () => audioPlayer.toggleShuffle(),
+                                    child: Icon(
+                                      Icons.shuffle,
+                                      color: AppColors.greyLight,
+                                      size: 30.0,
+                                    ),
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      setState(() {
-                                        audioPlayer.stop();
-                                        audioPlayer.previous();
-                                        currentIndex--;
-                                      });
+                                      audioPlayer.previous();
+                                      if (audioPlayer.loopMode.valueWrapper!.value == LoopMode.single) {
+                                        audioPlayer.setLoopMode(LoopMode.playlist);
+                                      }
                                     },
                                     child: const Icon(
                                       Icons.skip_previous,
@@ -215,29 +231,31 @@ class _PlayerPageState extends State<PlayerPage> {
                                     ),
                                   ),
                                   InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          audioPlayer.playOrPause();
-                                          isPaused = !isPaused;
-                                        });
-                                      },
-                                      child: Icon(
-                                        Icons.play_circle_fill,
-                                        color: AppColors.white,
-                                        size: 80.0,
-                                      )
-                                      // : Icon(
-                                      //     Icons.pause_circle_filled_outlined,
-                                      //     color: AppColors.white,
-                                      //     size: 80.0,
-                                      //   ),
-                                      ),
-                                  InkWell(
                                     onTap: () {
                                       setState(() {
-                                        audioPlayer.next();
-                                        currentIndex++;
+                                        audioPlayer.playOrPause();
                                       });
+                                    },
+                                    child: audioPlayer.isPlaying.valueWrapper!.value == false
+                                        ? Icon(
+                                            Icons.play_circle_fill,
+                                            color: AppColors.white,
+                                            size: 80.0,
+                                          )
+                                        : Icon(
+                                            Icons.pause_circle_filled_outlined,
+                                            color: AppColors.white,
+                                            size: 80.0,
+                                          ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      if (audioPlayer.loopMode.valueWrapper!.value == LoopMode.single) {
+                                        audioPlayer.setLoopMode(LoopMode.playlist);
+                                        print(audioPlayer.loopMode.valueWrapper!.value);
+                                        print('true');
+                                      }
+                                      audioPlayer.next();
                                     },
                                     child: Icon(
                                       Icons.skip_next,
@@ -245,10 +263,13 @@ class _PlayerPageState extends State<PlayerPage> {
                                       size: 50.0,
                                     ),
                                   ),
-                                  Icon(
-                                    Icons.replay,
-                                    color: AppColors.greyLight,
-                                    size: 30.0,
+                                  InkWell(
+                                    onTap: () => audioPlayer.setLoopMode(LoopMode.single),
+                                    child: Icon(
+                                      Icons.replay,
+                                      color: AppColors.greyLight,
+                                      size: 30.0,
+                                    ),
                                   ),
                                 ],
                               )
