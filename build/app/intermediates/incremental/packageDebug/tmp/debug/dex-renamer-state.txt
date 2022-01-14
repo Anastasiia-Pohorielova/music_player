@@ -1,10 +1,10 @@
-#Wed Jan 12 13:08:44 EET 2022
+#Thu Jan 13 16:00:46 EET 2022
+base.2=C\:\\Users\\Admin\\IdeaProjects\\music_player\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes3.dex
 path.2=classes3.dex
+base.1=C\:\\Users\\Admin\\IdeaProjects\\music_player\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
 path.1=classes2.dex
-path.0=classes.dex
+base.0=C\:\\Users\\Admin\\IdeaProjects\\music_player\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=C\:\\Users\\AppVesto\\IdeaProjects\\music_player\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes3.dex
-base.1=C\:\\Users\\AppVesto\\IdeaProjects\\music_player\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
-base.0=C\:\\Users\\AppVesto\\IdeaProjects\\music_player\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex

@@ -45,6 +45,7 @@ class PlayerState {
 
 
   PlayerState _saveDataToPlayerPlaylist(AddPlaylistToListenAction action) {
+
     return copyWith(tracklist: action.playlist);
   }
 
@@ -54,7 +55,7 @@ class PlayerState {
   }
 
   PlayerState _stopPlaying(StopPlayingAction action) {
-    audioPlayer.pause();
+    audioPlayer.stop();
     return copyWith(isPlaying: false);
   }
 

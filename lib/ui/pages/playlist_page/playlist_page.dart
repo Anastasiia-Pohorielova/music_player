@@ -23,13 +23,15 @@ class _PlaylistPageState extends State<PlaylistPage> {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, PlaylistPageVM>(
         converter: PlaylistPageVM.fromStore,
+        onInitialBuild: (PlaylistPageVM vm) => vm.getPlayingTracklist(vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks),
         builder: (BuildContext context, PlaylistPageVM vm) {
+          print(vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks.last.trackDto.title);
           return PlaylistPageLayout(
-            openPlayer: vm.openPlayer,
+            openPlayer: () {
+              vm.openPlayer();
+              },
             isPlaying: vm.isPlaying,
-            startPlaying: () {
-              vm.getPlayingTracklist(vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks);
-              vm.startPlaying(); },
+            startPlaying: () => vm.startPlaying(),
             stopPlaying: vm.stopPlaying,
             cover: vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks.first.coverUrl,
             artist: vm.playlist.firstWhere((element) => element.title == widget.playlistTitle).tracks.first.albumName,

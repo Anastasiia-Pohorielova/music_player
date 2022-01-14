@@ -36,7 +36,6 @@ class _MainLayoutState extends State<MainLayout> {
     return StoreConnector<AppState, AlbumPageVM>(
       converter: AlbumPageVM.fromStore,
       builder: (BuildContext context, AlbumPageVM vm) {
-        print('hello main');
     return Material(
       color: AppColors.transparent,
       child: Container(
@@ -61,7 +60,7 @@ class _MainLayoutState extends State<MainLayout> {
               ),
               bottomNavigationBar: vm.isPlaying ? PlayerWidget(audioPlayer: vm.audioPlayer,) : const SizedBox(),
               body: Padding(
-                padding: EdgeInsets.only(bottom: vm.isPlaying ? 100.0 : 50.0),
+                padding: EdgeInsets.only(bottom: vm.isPlaying ? 0.0 : 50.0),
                 child: widget.body,
               ),
               resizeToAvoidBottomInset: false,

@@ -15,7 +15,7 @@ class AlbumPageVM {
   final void Function(List<TrackModel>) savePlayingTracklist;
   final List<TrackModel> playingTrackList;
   final void Function() openPlayer;
-  final AssetsAudioPlayer audioPlayer;
+  final AssetsAudioPlayer? audioPlayer;
 
   AlbumPageVM({
     required this.trackList,

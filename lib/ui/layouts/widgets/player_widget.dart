@@ -5,7 +5,7 @@ import 'package:music_player/res/app_styles/app_colors.dart';
 import 'package:music_player/res/app_styles/app_text_styles.dart';
 
 class PlayerWidget extends StatefulWidget {
-  final AssetsAudioPlayer audioPlayer;
+  final AssetsAudioPlayer? audioPlayer;
 
   const PlayerWidget({
     required this.audioPlayer,
@@ -21,20 +21,19 @@ class _PlayerWidgetState extends State<PlayerWidget> {
 
   @override
   void initState() {
-    widget.audioPlayer.onReadyToPlay.listen((event) {
+    widget.audioPlayer!.onReadyToPlay.listen((event) {
+      if (!mounted) {
+        return;
+      }
       setState(() {});
     });
+   // widget.audioPlayer!.playlist!.audios.last.currentlyOpenedIn.
     super.initState();
-  }
-   @override
-  void dispose() {
-    widget.audioPlayer.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return widget.audioPlayer.getCurrentAudioImage == null
+    return widget.audioPlayer!.getCurrentAudioImage == null
         ? Center(
             child: CircularProgressIndicator(
               color: AppColors.white,
@@ -50,7 +49,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                 currentPosition -= position.delta.dx;
                 if(currentPosition > 150.0) {
                   setState(() {
-                    widget.audioPlayer.stop();
+                    widget.audioPlayer!.stop();
                   });
                 }
             });
@@ -72,7 +71,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                     width: 50.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
-                      image: DecorationImage(image: NetworkImage(widget.audioPlayer.getCurrentAudioImage!.path)),
+                      image: DecorationImage(image: NetworkImage(widget.audioPlayer!.getCurrentAudioImage!.path)),
                     ),
                   ),
                   Expanded(
@@ -81,11 +80,11 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.audioPlayer.getCurrentAudioTitle,
+                          widget.audioPlayer!.getCurrentAudioTitle,
                           style: AppTextStyles.s18fw500White,
                         ),
                         Text(
-                          widget.audioPlayer.getCurrentAudioArtist,
+                          widget.audioPlayer!.getCurrentAudioArtist,
                           style: AppTextStyles.s14fw500White,
                         ),
                       ],
@@ -94,13 +93,13 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                   InkWell(
                     onTap: () {
                       setState(() {
-                        widget.audioPlayer.isPlaying.valueWrapper!.value == true ? widget.audioPlayer.pause() : widget.audioPlayer.play();
+                        widget.audioPlayer!.isPlaying.valueWrapper!.value == true ? widget.audioPlayer!.pause() : widget.audioPlayer!.play();
                       });
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10.0),
                       child: Icon(
-                        widget.audioPlayer.isPlaying.valueWrapper!.value == true ? Icons.pause : Icons.play_arrow,
+                        widget.audioPlayer!.isPlaying.valueWrapper!.value == true ? Icons.pause : Icons.play_arrow,
                         color: AppColors.white,
                         size: 40.0,
                       ),
