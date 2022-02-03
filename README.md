@@ -1,3 +1,12 @@
+This is little app made in Spotify style.!
+
+[Screenshot_2022-02-03-13-24-45-684_com music player](https://user-images.githubusercontent.com/79107158/152334099-48f4d52e-bdd9-42aa-aaec-51f9a54d78fb.jpg)
+
+How it works:
+
+https://user-images.githubusercontent.com/79107158/152334006-da3460f3-c5a9-435f-867a-0f93b1ce5e62.mp4
+
+
 ## Architecture - Redux
 
 ## Flutter Version: 1.20.4
