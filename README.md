@@ -1,13 +1,4 @@
-# MyCatalog
-MyCatalog it is AppVesto project.
-
 ## Architecture - Redux
-## Project Links
-- [Git](https://bitbucket.org/flutterodessa/music_player/src/dev/)
-- [Jira](https://appvesto.atlassian.net/secure/RapidBoard.jspa?rapidView=2&projectKey=MC&selectedIssue=MC-23)
-- [Design (Not Added)](https://zpl.io/2jnWG4Q)
-- [Confluence](https://appvesto.atlassian.net/l/c/BTkHodu2)
-- [Jenkins](http://dev.appvesto.com:8080/)
 
 ## Flutter Version: 1.20.4
 ## Dart Version: 2.9.0
@@ -46,9 +37,3 @@ MyCatalog it is AppVesto project.
 - build_runner: 1.7.2
 - json_serializable: 3.2.5
 - flutter_launcher_icons: ^0.7.5
-
-## Additional links
-- [Project Code Style](https://appvesto.atlassian.net/l/c/2LAcARuf)
-- [Redux Documentation](https://appvesto.atlassian.net/l/c/DMoEFzp2)
-- [Jenkins Documentation](https://appvesto.atlassian.net/l/c/1DGmD7k8)
-- [Sonar Documentation](https://appvesto.atlassian.net/l/c/5V3nsgTf)
